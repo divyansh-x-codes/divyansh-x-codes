@@ -10,10 +10,9 @@ Email Me 👉 ✉️ **wini.techx@gmail.com** For Collaboration/Project or Anyth
 - 📫 **How to reach me:** wini.techx@gmail.com
 - ⚡ **Fun fact:** I debug code faster than I reply to “Hello, World!” 😏  
 
-## 🔗 I am a Content Creator. 😊😊
+## 🔗 🌐 If you want it to match your developer vibe (from your profile): 😊😊
 
-Stay updated with the latest tutorials, open-source projects, and dev insights.  
-I love turning complex tech topics into simple, actionable guides for students and developers alike.
+💻 I build, break, and share everything about Web Dev, Python, and AI.
 <!-- Snake Game Repo View -->
 
 <div align="center">
