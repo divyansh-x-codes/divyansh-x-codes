@@ -3,9 +3,9 @@
 
 Email Me 👉 ✉️ **wini.techx@gmail.com** For Collaboration/Project or Anything Else. 😊😊
 
-- 🔭 **I’m currently working on:**  Building real-time collaborative web platform (Coding Learning Platform ,)
-- 🌱 **I’m currently learning:** Java and Advance Python
-- 🤔 **I’m looking for help with:** Innovative projects in **AI, Web Development, and Automation Tools**.
+- 🔭 **I’m currently working on:**  Building real-time collaborative web platform (Coding Learning Platform)
+- 🌱 **I’m currently learning:** Java and Python
+- 🤔 **I’m looking for help with:** Innovative projects in ** Web Development, and Automation Tools**.
 - 💬 **Ask me about:** Web Development | Python   
 - 📫 **How to reach me:** wini.techx@gmail.com
 - ⚡ **Fun fact:** I debug code faster than I reply to “Hello, World!” 😏  
