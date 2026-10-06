@@ -203,15 +203,6 @@ hero_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 390" wid
           <image href="{id_b64}" x="-15" y="-10" width="285" height="330" preserveAspectRatio="xMidYMid slice"/>
         </g>
 
-        <rect x="3" y="220" width="254" height="94" rx="17" fill="url(#hero-bg-grad)" fill-opacity="0.88"/>
-
-        <g transform="translate(16, 266)">
-          <rect x="0" y="0" width="226" height="36" rx="8" fill="#070b16" fill-opacity="0.9" stroke="#247bff" stroke-opacity="0.5" stroke-width="1"/>
-          <circle cx="14" cy="18" r="3.5" fill="#247bff"/>
-          <text x="26" y="22" fill="#ffffff" class="hero-font" font-size="12" font-weight="700">DIVYANSH.ID</text>
-          <text x="140" y="22" fill="#58a6ff" class="hero-mono" font-size="10.5" font-weight="600">VERIFIED // 01</text>
-        </g>
-
         <path d="M12 24V12H24" stroke="#247bff" stroke-width="2" stroke-linecap="round"/>
         <path d="M248 24V12H236" stroke="#ff354f" stroke-width="2" stroke-linecap="round"/>
       </g>
@@ -902,19 +893,19 @@ for fname, content in svg_files.items():
 readme_content = '''<div align="center">
 
 <!-- HERO SECTION -->
-![Divyansh Chaudhary - Intro](./assets/hero.svg?v=10)
+![Divyansh Chaudhary - Intro](./assets/hero.svg?v=11)
 
 <!-- ABOUT & LIFE CAROUSEL -->
-![About & Capabilities](./assets/about-life.svg?v=10)
+![About & Capabilities](./assets/about-life.svg?v=11)
 
 <!-- TECH ARSENAL ORBIT -->
-![System Tech Arsenal](./assets/stack.svg?v=10)
+![System Tech Arsenal](./assets/stack.svg?v=11)
 
 <!-- VERIFIED ID & TELEMETRY DASHBOARD -->
-![Verified ID Dashboard](./assets/id-dashboard.svg?v=10)
+![Verified ID Dashboard](./assets/id-dashboard.svg?v=11)
 
 <!-- CONNECT & COLLABORATE -->
-![Let's Connect](./assets/connect.svg?v=10)
+![Let's Connect](./assets/connect.svg?v=11)
 
 <br/>
 
