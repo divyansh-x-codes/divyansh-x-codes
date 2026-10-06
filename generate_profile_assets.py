@@ -14,6 +14,8 @@ def get_base64_image(filename):
 
 id_b64 = get_base64_image("id_opt.png")
 pointing_b64 = get_base64_image("right_pointing_opt.png")
+profiles_b64 = get_base64_image("profiles.png")
+stack_b64 = get_base64_image("stack.png")
 
 # -------------------------------------------------------------
 # 1. HERO.SVG
@@ -233,35 +235,13 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
         font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
       }}
 
-      /* Carousel Progress Bar Animations (12s cycle: 4s each) */
-      @keyframes prog1 {{
-        0% {{ width: 0%; }}
-        30%, 100% {{ width: 100%; }}
+      @keyframes icon-pulse {{
+        0%, 100% {{ transform: scale(1); opacity: 0.9; }}
+        50% {{ transform: scale(1.05); opacity: 1; }}
       }}
-      @keyframes prog2 {{
-        0%, 33.3% {{ width: 0%; }}
-        63.3%, 100% {{ width: 100%; }}
-      }}
-      @keyframes prog3 {{
-        0%, 66.6% {{ width: 0%; }}
-        96.6%, 100% {{ width: 100%; }}
-      }}
-
-      /* Carousel Slide Transitions */
-      @keyframes slide1 {{
-        0%, 30% {{ opacity: 1; transform: translateX(0); }}
-        33.3%, 97% {{ opacity: 0; transform: translateX(16px); pointer-events: none; }}
-        100% {{ opacity: 1; transform: translateX(0); }}
-      }}
-      @keyframes slide2 {{
-        0%, 30% {{ opacity: 0; transform: translateX(-16px); pointer-events: none; }}
-        33.3%, 63.3% {{ opacity: 1; transform: translateX(0); }}
-        66.6%, 100% {{ opacity: 0; transform: translateX(16px); pointer-events: none; }}
-      }}
-      @keyframes slide3 {{
-        0%, 63.3% {{ opacity: 0; transform: translateX(-16px); pointer-events: none; }}
-        66.6%, 96.6% {{ opacity: 1; transform: translateX(0); }}
-        100% {{ opacity: 0; transform: translateX(16px); pointer-events: none; }}
+      @keyframes border-breathe {{
+        0%, 100% {{ stroke-opacity: 0.5; }}
+        50% {{ stroke-opacity: 0.85; }}
       }}
 
       @media (prefers-reduced-motion: reduce) {{
@@ -270,23 +250,24 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
     </style>
 
     <linearGradient id="about-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#060a14"/>
-      <stop offset="100%" stop-color="#0b1424"/>
+      <stop offset="0%" stop-color="#050813"/>
+      <stop offset="50%" stop-color="#081022"/>
+      <stop offset="100%" stop-color="#040711"/>
     </linearGradient>
 
     <linearGradient id="about-card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0e192f"/>
-      <stop offset="100%" stop-color="#080e1c"/>
+      <stop offset="0%" stop-color="#0c1527"/>
+      <stop offset="100%" stop-color="#080e1b"/>
     </linearGradient>
 
     <linearGradient id="about-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#247bff" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#1b253b"/>
-      <stop offset="100%" stop-color="#ff354f" stop-opacity="0.6"/>
+      <stop offset="0%" stop-color="#247bff" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff354f" stop-opacity="0.85"/>
     </linearGradient>
 
-    <pattern id="about-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <path d="M 22 0 L 0 0 0 22" fill="none" stroke="#247bff" stroke-opacity="0.06" stroke-width="1"/>
+    <pattern id="about-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#247bff" stroke-opacity="0.04" stroke-width="1"/>
     </pattern>
 
     <clipPath id="about-main-clip">
@@ -299,668 +280,212 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
     <rect width="880" height="370" fill="url(#about-bg-grad)"/>
     <rect width="880" height="370" fill="url(#about-grid)"/>
 
-    <!-- Section Header Tag (Pill width 225px to avoid text overlap) -->
-    <g transform="translate(42, 26)">
-      <rect x="0" y="0" width="215" height="26" rx="6" fill="#0e1a30" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
-      <text x="12" y="17" fill="#58a6ff" class="about-mono" font-size="10.5" font-weight="700" letter-spacing="1">02 // CAPABILITIES &amp; LIFE</text>
-      <text x="235" y="18" fill="#8b949e" class="about-font" font-size="13">What drives my technical craftsmanship and daily curiosity</text>
+    <!-- ==================== HEADER ==================== -->
+    <g transform="translate(42, 22)">
+      <!-- Section Pill Badge -->
+      <rect x="0" y="0" width="220" height="28" rx="7" fill="#0c182b" stroke="#247bff" stroke-opacity="0.5" stroke-width="1.2"/>
+      <circle cx="14" cy="14" r="3.5" fill="#247bff"/>
+      <text x="26" y="18" fill="#58a6ff" class="about-mono" font-size="11" font-weight="800" letter-spacing="1">02 // CAPABILITIES &amp; LIFE</text>
+      
+      <!-- Subtitle -->
+      <text x="236" y="13" fill="#ffffff" class="about-font" font-size="13.5" font-weight="700">Technical Craftsmanship &amp; Daily Curiosity</text>
+      <text x="236" y="26" fill="#64748b" class="about-mono" font-size="9" font-weight="700" letter-spacing="1.2">CORE ARCHITECTURE · HIGH-SPEED DYNAMICS · VENTURES</text>
     </g>
 
-    <!-- LEFT CARD: CAPABILITIES -->
-    <g transform="translate(42, 68)">
-      <rect width="386" height="272" rx="14" fill="url(#about-card-grad)" stroke="#1a2742" stroke-width="1.2"/>
+    <!-- ==================== LEFT CARD: CORE CAPABILITIES ==================== -->
+    <g transform="translate(42, 66)">
+      <!-- Card Container -->
+      <rect width="386" height="276" rx="14" fill="url(#about-card-grad)" stroke="#1a2744" stroke-width="1.2"/>
       
-      <!-- Card Title -->
-      <text x="22" y="30" fill="#ffffff" class="about-font" font-size="15" font-weight="800" letter-spacing="0.5">CORE CAPABILITIES</text>
-      <text x="325" y="30" fill="#247bff" class="about-mono" font-size="11.5" font-weight="700">SPEC</text>
-      <line x1="22" y1="44" x2="364" y2="44" stroke="#16233b" stroke-width="1"/>
+      <!-- Card Header -->
+      <text x="20" y="28" fill="#ffffff" class="about-font" font-size="14.5" font-weight="800" letter-spacing="0.5">CORE CAPABILITIES</text>
+      <rect x="318" y="14" width="48" height="20" rx="4" fill="#0d2238" stroke="#247bff" stroke-opacity="0.4" stroke-width="0.8"/>
+      <text x="342" y="28" text-anchor="middle" fill="#60a5fa" class="about-mono" font-size="9" font-weight="700">SPEC</text>
+      <line x1="20" y1="44" x2="366" y2="44" stroke="#16233b" stroke-width="1"/>
 
-      <!-- Capability 1 -->
-      <g transform="translate(22, 58)">
-        <rect x="0" y="0" width="34" height="34" rx="8" fill="#13233f" stroke="#247bff" stroke-opacity="0.5"/>
-        <path d="M12 17C12 14.2 14.2 12 17 12C19.8 12 22 14.2 22 17C22 19.8 19.8 22 17 22" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="17" cy="17" r="2" fill="#00ff88"/>
-        <text x="46" y="15" fill="#f0f6fc" class="about-font" font-size="13" font-weight="700">Applied AI &amp; Machine Learning</text>
-        <text x="46" y="31" fill="#8b949e" class="about-font" font-size="11">TensorFlow, Scikit-learn, Neural Nets &amp; Vision</text>
+      <!-- Capability 1: AI / ML -->
+      <g transform="translate(20, 56)">
+        <rect x="0" y="0" width="38" height="38" rx="8" fill="#0d2238" stroke="#247bff" stroke-opacity="0.5" stroke-width="1"/>
+        <path d="M13 19C13 15.7 15.7 13 19 13C22.3 13 25 15.7 25 19C25 22.3 22.3 25 19 25" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="19" cy="19" r="2.5" fill="#00ff88"/>
+        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Applied AI &amp; Machine Learning</text>
+        <text x="48" y="32" fill="#94a3b8" class="about-font" font-size="10.5">TensorFlow, Scikit-learn, Neural Nets &amp; Vision</text>
       </g>
 
-      <!-- Capability 2 -->
-      <g transform="translate(22, 124)">
-        <rect x="0" y="0" width="34" height="34" rx="8" fill="#241424" stroke="#ff354f" stroke-opacity="0.5"/>
-        <path d="M11 14L17 10L23 14L17 18L11 14ZM11 20L17 24L23 20" stroke="#ff354f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="46" y="15" fill="#f0f6fc" class="about-font" font-size="13" font-weight="700">Full-Stack Architecture</text>
-        <text x="46" y="31" fill="#8b949e" class="about-font" font-size="11">React, Node.js, REST APIs, High Performance</text>
+      <!-- Capability 2: Full-Stack -->
+      <g transform="translate(20, 126)">
+        <rect x="0" y="0" width="38" height="38" rx="8" fill="#261318" stroke="#ff354f" stroke-opacity="0.5" stroke-width="1"/>
+        <path d="M12 15L19 11L26 15L19 19L12 15ZM12 21L19 25L26 21" stroke="#ff7b72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Full-Stack Architecture</text>
+        <text x="48" y="32" fill="#94a3b8" class="about-font" font-size="10.5">React, Node.js, Express, REST APIs &amp; SQL</text>
       </g>
 
-      <!-- Capability 3 -->
-      <g transform="translate(22, 190)">
-        <rect x="0" y="0" width="34" height="34" rx="8" fill="#0f262a" stroke="#00ff88" stroke-opacity="0.5"/>
-        <path d="M17 10V24M10 17H24" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
-        <text x="46" y="15" fill="#f0f6fc" class="about-font" font-size="13" font-weight="700">Systems, Algorithms &amp; C++</text>
-        <text x="46" y="31" fill="#8b949e" class="about-font" font-size="11">Low-level efficiency, Clean Code &amp; Git ELT</text>
-      </g>
-    </g>
-
-    <!-- RIGHT CARD: 3-SLIDE INTERESTS CAROUSEL -->
-    <g transform="translate(452, 68)">
-      <rect width="386" height="272" rx="14" fill="url(#about-card-grad)" stroke="#1a2742" stroke-width="1.2"/>
-      
-      <!-- Top Title & Progress Bars Section -->
-      <g transform="translate(22, 18)">
-        <text x="0" y="12" fill="#ffffff" class="about-font" font-size="15" font-weight="800" letter-spacing="0.5">INTERESTS &amp; PASSIONS</text>
-        
-        <!-- Segment Progress Indicators (3 Bars) -->
-        <g transform="translate(0, 24)">
-          <!-- Seg 1 -->
-          <rect x="0" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
-          <rect x="0" y="0" height="4" rx="2" fill="#247bff" style="animation: prog1 12s infinite linear;"/>
-
-          <!-- Seg 2 -->
-          <rect x="118" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
-          <rect x="118" y="0" height="4" rx="2" fill="#ff354f" style="animation: prog2 12s infinite linear;"/>
-
-          <!-- Seg 3 -->
-          <rect x="236" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
-          <rect x="236" y="0" height="4" rx="2" fill="#00ff88" style="animation: prog3 12s infinite linear;"/>
-        </g>
-      </g>
-
-      <line x1="22" y1="58" x2="364" y2="58" stroke="#16233b" stroke-width="1"/>
-
-      <!-- CAROUSEL SLIDES (Positioned comfortably below separator) -->
-      
-      <!-- SLIDE 1: AI & ML -->
-      <g transform="translate(22, 72)" style="animation: slide1 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
-        <!-- Tag -->
-        <rect x="0" y="0" width="86" height="22" rx="4" fill="#13233f"/>
-        <text x="8" y="15" fill="#58a6ff" class="about-mono" font-size="10" font-weight="700">01 / PASSION</text>
-        
-        <!-- Title -->
-        <text x="0" y="44" fill="#ffffff" class="about-font" font-size="18" font-weight="800">AI &amp; Machine Learning</text>
-        
-        <!-- Description -->
-        <text x="0" y="68" fill="#a0aec0" class="about-font" font-size="12.5">Fascinated by neural networks, predictive intelligence,</text>
-        <text x="0" y="86" fill="#a0aec0" class="about-font" font-size="12.5">and transforming raw data into actionable decision systems.</text>
-
-        <!-- Bottom Pill -->
-        <g transform="translate(0, 110)">
-          <rect x="0" y="0" width="342" height="32" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
-          <text x="12" y="20" fill="#58a6ff" class="about-mono" font-size="10.5">FOCUS: Deep Learning · Computer Vision · NLP</text>
-        </g>
-      </g>
-
-      <!-- SLIDE 2: CAR RACING -->
-      <g transform="translate(22, 72)" style="animation: slide2 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
-        <!-- Tag -->
-        <rect x="0" y="0" width="98" height="22" rx="4" fill="#29121a"/>
-        <text x="8" y="15" fill="#ff4d6a" class="about-mono" font-size="10" font-weight="700">02 / ADRENALINE</text>
-        
-        <!-- Title -->
-        <text x="0" y="44" fill="#ffffff" class="about-font" font-size="18" font-weight="800">Car Racing &amp; Dynamics</text>
-        
-        <!-- Description -->
-        <text x="0" y="68" fill="#a0aec0" class="about-font" font-size="12.5">The thrill of high-speed aerodynamics, apex precision,</text>
-        <text x="0" y="86" fill="#a0aec0" class="about-font" font-size="12.5">and high-stakes split-second decision making under pressure.</text>
-
-        <!-- Bottom Pill -->
-        <g transform="translate(0, 110)">
-          <rect x="0" y="0" width="342" height="32" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
-          <text x="12" y="20" fill="#ff4d6a" class="about-mono" font-size="10.5">ETHOS: Speed · Telemetry · Peak Precision</text>
-        </g>
-      </g>
-
-      <!-- SLIDE 3: ENTREPRENEURSHIP -->
-      <g transform="translate(22, 72)" style="animation: slide3 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
-        <!-- Tag -->
-        <rect x="0" y="0" width="92" height="22" rx="4" fill="#0c231e"/>
-        <text x="8" y="15" fill="#00ff88" class="about-mono" font-size="10" font-weight="700">03 / VENTURES</text>
-        
-        <!-- Title -->
-        <text x="0" y="44" fill="#ffffff" class="about-font" font-size="18" font-weight="800">Entrepreneurship &amp; Building</text>
-        
-        <!-- Description -->
-        <text x="0" y="68" fill="#a0aec0" class="about-font" font-size="12.5">Founder of Ryth (200+ active users). Building products</text>
-        <text x="0" y="86" fill="#a0aec0" class="about-font" font-size="12.5">that blend user growth, smart content and intuitive design.</text>
-
-        <!-- Bottom Pill -->
-        <g transform="translate(0, 110)">
-          <rect x="0" y="0" width="342" height="32" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
-          <text x="12" y="20" fill="#00ff88" class="about-mono" font-size="10.5">VENTURE: Ryth Platform · Growth &amp; Tech</text>
-        </g>
+      <!-- Capability 3: Systems & C++ -->
+      <g transform="translate(20, 196)">
+        <rect x="0" y="0" width="38" height="38" rx="8" fill="#072418" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
+        <path d="M19 12V26M12 19H26" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Systems, Algorithms &amp; C++</text>
+        <text x="48" y="32" fill="#94a3b8" class="about-font" font-size="10.5">Low-level efficiency, DSA, Competitive Code</text>
       </g>
     </g>
 
-    <!-- Outer Border -->
-    <rect x="1" y="1" width="878" height="368" rx="15" fill="none" stroke="url(#about-border-grad)" stroke-width="1.5"/>
+    <!-- ==================== RIGHT CARD: PASSIONS & ETHOS ==================== -->
+    <g transform="translate(452, 66)">
+      <!-- Card Container -->
+      <rect width="386" height="276" rx="14" fill="url(#about-card-grad)" stroke="#1a2744" stroke-width="1.2"/>
+      
+      <!-- Card Header -->
+      <text x="20" y="28" fill="#ffffff" class="about-font" font-size="14.5" font-weight="800" letter-spacing="0.5">INTERESTS &amp; PASSIONS</text>
+      <rect x="314" y="14" width="52" height="20" rx="4" fill="#2a1217" stroke="#ff354f" stroke-opacity="0.4" stroke-width="0.8"/>
+      <text x="340" y="28" text-anchor="middle" fill="#ff7b72" class="about-mono" font-size="9" font-weight="700">ETHOS</text>
+      <line x1="20" y1="44" x2="366" y2="44" stroke="#16233b" stroke-width="1"/>
+
+      <!-- Passion 1: Car Racing -->
+      <g transform="translate(20, 56)">
+        <rect x="0" y="0" width="38" height="38" rx="8" fill="#261318" stroke="#ff354f" stroke-opacity="0.5" stroke-width="1"/>
+        <!-- Speedometer / Racing Icon -->
+        <path d="M13 23A8 8 0 1 1 25 23" fill="none" stroke="#ff7b72" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="19" y1="19" x2="23" y2="15" stroke="#ff354f" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="19" cy="19" r="1.5" fill="#ffffff"/>
+        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Car Racing &amp; Dynamics</text>
+        <text x="48" y="32" fill="#f87171" class="about-font" font-size="10.5">Aerodynamics, Telemetry &amp; Peak Precision</text>
+      </g>
+
+      <!-- Passion 2: Entrepreneurship / Ryth -->
+      <g transform="translate(20, 126)">
+        <rect x="0" y="0" width="38" height="38" rx="8" fill="#072418" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
+        <!-- Rocket / Venture Icon -->
+        <path d="M19 11C19 11 25 13 25 19L23 21L19 19L15 21L13 19C13 13 19 11 19 11Z" fill="none" stroke="#00ff88" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M17 21L15 25M21 21L23 25" stroke="#00ff88" stroke-width="1.4" stroke-linecap="round"/>
+        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Entrepreneurship &amp; Building</text>
+        <text x="48" y="32" fill="#86efac" class="about-font" font-size="10.5">Founder of Ryth (200+ Users) · Growth &amp; Tech</text>
+      </g>
+
+      <!-- Passion 3: Deep Tech Research -->
+      <g transform="translate(20, 196)">
+        <rect x="0" y="0" width="38" height="38" rx="8" fill="#0d2238" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1"/>
+        <!-- Brain / Neural Research Icon -->
+        <circle cx="15" cy="19" r="3" fill="#38bdf8"/>
+        <circle cx="23" cy="15" r="2.5" fill="#38bdf8"/>
+        <circle cx="23" cy="23" r="2.5" fill="#38bdf8"/>
+        <line x1="15" y1="19" x2="23" y2="15" stroke="#38bdf8" stroke-width="1.4"/>
+        <line x1="15" y1="19" x2="23" y2="23" stroke="#38bdf8" stroke-width="1.4"/>
+        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Deep Tech &amp; AI Research</text>
+        <text x="48" y="32" fill="#7dd3fc" class="about-font" font-size="10.5">Intelligent Agent Workflows &amp; Automation</text>
+      </g>
+    </g>
+
+    <!-- Outer Frame Stroke -->
+    <rect x="1" y="1" width="878" height="368" rx="15" fill="none" stroke="url(#about-border-grad)" stroke-width="1.5" style="animation: border-breathe 4s infinite ease-in-out;"/>
   </g>
 </svg>'''
 
 # -------------------------------------------------------------
 # 3. STACK.SVG
 # -------------------------------------------------------------
-stack_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400" fill="none">
+stack_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1672 941" width="100%" height="auto" fill="none">
   <defs>
-    <style>
-      .stack-font {{
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      }}
-      .stack-mono {{
-        font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-      }}
-      @keyframes orbit-pulse {{
-        0%, 100% {{ opacity: 0.4; transform: scale(1); }}
-        50% {{ opacity: 0.9; transform: scale(1.08); }}
-      }}
-      @media (prefers-reduced-motion: reduce) {{
-        * {{ animation: none !important; }}
-      }}
-    </style>
-
-    <linearGradient id="stack-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#050913"/>
-      <stop offset="50%" stop-color="#091224"/>
-      <stop offset="100%" stop-color="#060a15"/>
-    </linearGradient>
-
     <linearGradient id="stack-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#247bff" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#1c263c"/>
+      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.3"/>
       <stop offset="100%" stop-color="#ff354f" stop-opacity="0.8"/>
     </linearGradient>
-
-    <linearGradient id="stack-center-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#247bff"/>
-      <stop offset="100%" stop-color="#ff354f"/>
-    </linearGradient>
-
-    <clipPath id="stack-card-clip">
-      <rect x="0" y="0" width="880" height="400" rx="16"/>
+    <clipPath id="stack-rounded">
+      <rect width="1672" height="941" rx="20" ry="20" />
     </clipPath>
   </defs>
-
-  <g clip-path="url(#stack-card-clip)">
-    <!-- Background -->
-    <rect width="880" height="400" fill="url(#stack-bg-grad)"/>
-
-    <!-- Header -->
-    <g transform="translate(42, 26)">
-      <rect x="0" y="0" width="170" height="26" rx="6" fill="#0d182b" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
-      <text x="12" y="17" fill="#58a6ff" class="stack-mono" font-size="10.5" font-weight="700" letter-spacing="1">03 // TECH ARSENAL</text>
-      <text x="190" y="18" fill="#8b949e" class="stack-font" font-size="13">Core languages, AI/ML frameworks, and platform tooling</text>
-    </g>
-
-    <!-- CENTER PLANETARY ORBIT SYSTEM -->
-    <g transform="translate(440, 140)">
-      <circle cx="0" cy="0" r="110" fill="#247bff" fill-opacity="0.08"/>
-
-      <!-- Orbit 1: Inner -->
-      <ellipse cx="0" cy="0" rx="135" ry="46" fill="none" stroke="#247bff" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="4 4" transform="rotate(-15)"/>
-
-      <!-- Orbit 2: Middle -->
-      <ellipse cx="0" cy="0" rx="230" ry="62" fill="none" stroke="#58a6ff" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="6 6" transform="rotate(8)"/>
-
-      <!-- Orbit 3: Outer -->
-      <ellipse cx="0" cy="0" rx="320" ry="78" fill="none" stroke="#ff354f" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="8 6" transform="rotate(-6)"/>
-
-      <!-- Node: Python -->
-      <g transform="translate(-165, -42)">
-        <circle cx="0" cy="0" r="18" fill="#0a162a" stroke="#247bff" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#58a6ff" class="stack-mono" font-size="10.5" font-weight="700">PY</text>
-        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Python</text>
-      </g>
-
-      <!-- Node: TensorFlow -->
-      <g transform="translate(175, -35)">
-        <circle cx="0" cy="0" r="19" fill="#1f1414" stroke="#ff7b72" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#ff7b72" class="stack-mono" font-size="10.5" font-weight="700">TF</text>
-        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">TensorFlow</text>
-      </g>
-
-      <!-- Node: C++ -->
-      <g transform="translate(-280, 10)">
-        <circle cx="0" cy="0" r="18" fill="#0c182b" stroke="#00d8ff" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#00d8ff" class="stack-mono" font-size="10" font-weight="700">C++</text>
-        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">C / C++</text>
-      </g>
-
-      <!-- Node: React -->
-      <g transform="translate(290, 12)">
-        <circle cx="0" cy="0" r="18" fill="#091b2c" stroke="#61dafb" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#61dafb" class="stack-mono" font-size="10" font-weight="700">RCT</text>
-        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">React</text>
-      </g>
-
-      <!-- Node: Scikit-learn -->
-      <g transform="translate(-65, 48)">
-        <circle cx="0" cy="0" r="17" fill="#1b1d12" stroke="#f59e0b" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#f59e0b" class="stack-mono" font-size="10" font-weight="700">SKL</text>
-        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Scikit-Learn</text>
-      </g>
-
-      <!-- Node: Node.js -->
-      <g transform="translate(90, 45)">
-        <circle cx="0" cy="0" r="17" fill="#0c1e14" stroke="#00ff88" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#00ff88" class="stack-mono" font-size="10" font-weight="700">JS</text>
-        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Node / JS</text>
-      </g>
-
-      <!-- Core Center Star -->
-      <circle cx="0" cy="0" r="32" fill="url(#stack-center-grad)"/>
-      <circle cx="0" cy="0" r="36" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" style="animation: orbit-pulse 3s infinite ease-in-out;"/>
-      <text x="0" y="5" text-anchor="middle" fill="#ffffff" class="stack-font" font-size="12" font-weight="900" letter-spacing="0.5">CORE</text>
-    </g>
-
-    <!-- BOTTOM SECTION: GROUPED TECH CHIPS -->
-    <g transform="translate(42, 252)">
-      <rect width="796" height="120" rx="12" fill="#0b1322" stroke="#16233a" stroke-width="1"/>
-      
-      <text x="18" y="24" fill="#8b949e" class="stack-mono" font-size="10.5" font-weight="600" letter-spacing="0.5">PROVEN PROFICIENCIES // PRODUCTION &amp; RESEARCH</text>
-
-      <!-- Row 1: Languages & AI/ML -->
-      <g transform="translate(18, 38)">
-        <!-- Python -->
-        <g transform="translate(0, 0)">
-          <rect width="144" height="30" rx="6" fill="#0f1b30" stroke="#247bff" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#388bfd"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">Python 3</text>
-          <text x="96" y="19" fill="#58a6ff" class="stack-mono" font-size="9.5">AI/Core</text>
-        </g>
-        <!-- C++ -->
-        <g transform="translate(154, 0)">
-          <rect width="144" height="30" rx="6" fill="#0f1b30" stroke="#00d8ff" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#00d8ff"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">C / C++</text>
-          <text x="96" y="19" fill="#00d8ff" class="stack-mono" font-size="9.5">Perf</text>
-        </g>
-        <!-- TensorFlow -->
-        <g transform="translate(308, 0)">
-          <rect width="154" height="30" rx="6" fill="#1e1416" stroke="#ff354f" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#ff354f"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">TensorFlow</text>
-          <text x="108" y="19" fill="#ff7b72" class="stack-mono" font-size="9.5">Neural</text>
-        </g>
-        <!-- Scikit-learn -->
-        <g transform="translate(472, 0)">
-          <rect width="148" height="30" rx="6" fill="#1f1a10" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#f59e0b"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">scikit-learn</text>
-          <text x="110" y="19" fill="#f59e0b" class="stack-mono" font-size="9.5">ML</text>
-        </g>
-        <!-- SQL -->
-        <g transform="translate(630, 0)">
-          <rect width="130" height="30" rx="6" fill="#0f1b30" stroke="#247bff" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#58a6ff"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">SQL / DB</text>
-        </g>
-      </g>
-
-      <!-- Row 2: Web & Tools -->
-      <g transform="translate(18, 76)">
-        <!-- React -->
-        <g transform="translate(0, 0)">
-          <rect width="144" height="30" rx="6" fill="#0a1a2b" stroke="#61dafb" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#61dafb"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">React.js</text>
-          <text x="96" y="19" fill="#61dafb" class="stack-mono" font-size="9.5">UI/UX</text>
-        </g>
-        <!-- Node.js -->
-        <g transform="translate(154, 0)">
-          <rect width="144" height="30" rx="6" fill="#0c1e14" stroke="#00ff88" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#00ff88"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">Node.js</text>
-          <text x="94" y="19" fill="#00ff88" class="stack-mono" font-size="9.5">Backend</text>
-        </g>
-        <!-- JavaScript -->
-        <g transform="translate(308, 0)">
-          <rect width="154" height="30" rx="6" fill="#1e1e0f" stroke="#eab308" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#eab308"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">JavaScript ES6+</text>
-        </g>
-        <!-- Git -->
-        <g transform="translate(472, 0)">
-          <rect width="148" height="30" rx="6" fill="#1e1414" stroke="#f05032" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#f05032"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">Git / VCS</text>
-        </g>
-        <!-- GitHub -->
-        <g transform="translate(630, 0)">
-          <rect width="130" height="30" rx="6" fill="#161b22" stroke="#8b949e" stroke-opacity="0.6" stroke-width="1"/>
-          <circle cx="15" cy="15" r="4" fill="#c9d1d9"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">GitHub CI/CD</text>
-        </g>
-      </g>
-    </g>
-
-    <!-- Outer Frame Stroke -->
-    <rect x="1" y="1" width="878" height="398" rx="15" fill="none" stroke="url(#stack-border-grad)" stroke-width="1.5"/>
+  <g clip-path="url(#stack-rounded)">
+    <image href="{stack_b64}" width="1672" height="941" />
+    <rect x="1" y="1" width="1670" height="939" rx="19" fill="none" stroke="url(#stack-border-grad)" stroke-width="2" />
   </g>
 </svg>'''
 
 # -------------------------------------------------------------
 # 4. ID-DASHBOARD.SVG
 # -------------------------------------------------------------
-id_dashboard_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430" fill="none">
+id_dashboard_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1765 891" width="100%" height="auto" fill="none">
   <defs>
     <style>
-      .id-font {{
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      }}
-      .id-mono {{
-        font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-      }}
-
-      @keyframes lanyard-gentle-swing {{
-        0%, 100% {{ transform: rotate(-1.5deg); }}
-        50% {{ transform: rotate(1.5deg); }}
-      }}
       @keyframes foil-sweep {{
-        0% {{ transform: translateX(-150%) rotate(25deg); opacity: 0; }}
-        20% {{ opacity: 0.5; }}
-        40% {{ transform: translateX(250%) rotate(25deg); opacity: 0; }}
-        100% {{ transform: translateX(250%) rotate(25deg); opacity: 0; }}
+        0% {{ transform: translateX(-120%) rotate(25deg); opacity: 0; }}
+        15% {{ opacity: 0.45; }}
+        35% {{ transform: translateX(260%) rotate(25deg); opacity: 0; }}
+        100% {{ transform: translateX(260%) rotate(25deg); opacity: 0; }}
+      }}
+      @keyframes beacon-ping {{
+        0% {{ r: 4px; opacity: 1; stroke-width: 2.5px; }}
+        70% {{ r: 16px; opacity: 0; stroke-width: 0.5px; }}
+        100% {{ r: 16px; opacity: 0; stroke-width: 0px; }}
+      }}
+      @keyframes border-glow {{
+        0%, 100% {{ stroke-opacity: 0.6; }}
+        50% {{ stroke-opacity: 1; }}
       }}
       @media (prefers-reduced-motion: reduce) {{
         * {{ animation: none !important; }}
       }}
     </style>
 
-    <linearGradient id="id-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#050813"/>
-      <stop offset="50%" stop-color="#081022"/>
-      <stop offset="100%" stop-color="#040711"/>
-    </linearGradient>
-
-    <linearGradient id="id-card-foil" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d172a"/>
-      <stop offset="50%" stop-color="#111f38"/>
-      <stop offset="100%" stop-color="#080e1c"/>
-    </linearGradient>
-
     <linearGradient id="id-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#247bff" stop-opacity="0.85"/>
-      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ff354f" stop-opacity="0.85"/>
+      <stop offset="0%" stop-color="#247bff" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ff354f" stop-opacity="0.9"/>
     </linearGradient>
 
-    <linearGradient id="id-shimmer-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Holographic Foil Shimmer -->
+    <linearGradient id="foil-shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="40%" stop-color="#00d8ff" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#ff354f" stop-opacity="0.2"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
 
-    <pattern id="id-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#247bff" stroke-opacity="0.04" stroke-width="1"/>
-    </pattern>
-
-    <clipPath id="id-main-clip">
-      <rect x="0" y="0" width="880" height="430" rx="16"/>
+    <!-- Rounded Canvas Clip -->
+    <clipPath id="main-rounded-clip">
+      <rect width="1765" height="891" rx="26" ry="26" />
     </clipPath>
 
-    <clipPath id="id-badge-clip">
-      <rect x="0" y="0" width="230" height="342" rx="16"/>
-    </clipPath>
-
-    <clipPath id="id-badge-photo-clip">
-      <rect x="0" y="0" width="200" height="152" rx="10"/>
+    <!-- ID Card Lanyard Badge Clip for Foil Effect -->
+    <clipPath id="badge-foil-clip">
+      <rect x="70" y="160" width="455" height="675" rx="36" ry="36" />
     </clipPath>
   </defs>
 
-  <g clip-path="url(#id-main-clip)">
-    <!-- Main Background -->
-    <rect width="880" height="430" fill="url(#id-bg-grad)"/>
-    <rect width="880" height="430" fill="url(#id-grid)"/>
+  <g clip-path="url(#main-rounded-clip)">
+    <!-- Base 3D Render Image (Full HD Retina Fidelity) -->
+    <image href="{profiles_b64}" width="1765" height="891" />
 
-    <!-- ==================== HEADER ==================== -->
-    <g transform="translate(36, 22)">
-      <!-- Section Pill Badge -->
-      <rect x="0" y="0" width="200" height="28" rx="7" fill="#0c182b" stroke="#247bff" stroke-opacity="0.5" stroke-width="1.2"/>
-      <circle cx="14" cy="14" r="3.5" fill="#247bff"/>
-      <text x="26" y="18" fill="#58a6ff" class="id-mono" font-size="11" font-weight="800" letter-spacing="1">04 // TELEMETRY &amp; ID</text>
-      
-      <!-- Subtitle -->
-      <text x="216" y="13" fill="#ffffff" class="id-font" font-size="13.5" font-weight="700">Verified Developer Identity &amp; System Metrics</text>
-      <text x="216" y="26" fill="#64748b" class="id-mono" font-size="9" font-weight="700" letter-spacing="1.2">LIVE DATA · CRYPTOGRAPHICALLY AUTHENTICATED</text>
+    <!-- ==================== ANIMATED LAYER: ID BADGE HOLOGRAPHIC SWEEP ==================== -->
+    <g clip-path="url(#badge-foil-clip)">
+      <rect x="-200" y="-100" width="280" height="1200" fill="url(#foil-shimmer)" style="animation: foil-sweep 6s infinite cubic-bezier(0.4, 0, 0.2, 1);" />
     </g>
 
-    <!-- ==================== LEFT: LANYARD ID BADGE ==================== -->
-    <g transform="translate(160, 50)">
-      <!-- Strap Top -->
-      <path d="M-22 -50 L-7 -10 L7 -10 L22 -50" fill="#0b1322" stroke="#247bff" stroke-width="1.2"/>
-      <rect x="-15" y="-12" width="30" height="15" rx="3" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-      <circle cx="0" cy="-4.5" r="3" fill="#070b16"/>
-      <rect x="-8" y="3" width="16" height="8" rx="2" fill="#64748b"/>
-
-      <!-- Swinging Badge -->
-      <g style="transform-origin: 0px 0px; animation: lanyard-gentle-swing 6s ease-in-out infinite alternate;">
-        <g transform="translate(-115, 14)">
-          <!-- Card Outer Shell -->
-          <rect x="0" y="0" width="230" height="342" rx="16" fill="url(#id-card-foil)" stroke="url(#id-border-grad)" stroke-width="1.6" style="filter: drop-shadow(0 14px 30px rgba(0,0,0,0.7));"/>
-          
-          <g clip-path="url(#id-badge-clip)">
-            <!-- Holographic Shimmer Sweep -->
-            <rect x="-80" y="-80" width="120" height="500" fill="url(#id-shimmer-grad)" style="animation: foil-sweep 7s infinite ease-in-out;"/>
-
-            <!-- Top Lanyard Slot Cutout -->
-            <rect x="90" y="10" width="50" height="6" rx="3" fill="#050813" stroke="#1f2d48" stroke-width="1"/>
-
-            <!-- Header Row -->
-            <text x="15" y="34" fill="#38bdf8" class="id-mono" font-size="9.5" font-weight="800" letter-spacing="1.2">DEV IDENTIFICATION</text>
-            <circle cx="210" cy="30" r="7" fill="none" stroke="#00ff88" stroke-opacity="0.35" stroke-width="1.2"/>
-            <circle cx="210" cy="30" r="4" fill="#00ff88"/>
-
-            <!-- ID Photo Container -->
-            <g transform="translate(15, 44)" clip-path="url(#id-badge-photo-clip)">
-              <rect width="200" height="152" fill="#080e1a"/>
-              <image href="{id_b64}" x="-10" y="-15" width="220" height="182" preserveAspectRatio="xMidYMid slice"/>
-              <rect width="200" height="152" rx="10" fill="none" stroke="#247bff" stroke-opacity="0.5" stroke-width="1.5"/>
-              <!-- Cyber Corner Ticks -->
-              <path d="M 0 16 L 0 0 L 16 0" stroke="#00d8ff" stroke-width="2" fill="none"/>
-              <path d="M 184 0 L 200 0 L 200 16" stroke="#00d8ff" stroke-width="2" fill="none"/>
-              <path d="M 0 136 L 0 152 L 16 152" stroke="#00d8ff" stroke-width="2" fill="none"/>
-              <path d="M 184 152 L 200 152 L 200 136" stroke="#00d8ff" stroke-width="2" fill="none"/>
-            </g>
-
-            <!-- Name -->
-            <text x="15" y="218" fill="#ffffff" class="id-font" font-size="14" font-weight="800" letter-spacing="0.3">DIVYANSH CHAUDHARY</text>
-
-            <!-- Role Tag Pill & Region Tag Pill -->
-            <g transform="translate(15, 228)">
-              <!-- Role Badge -->
-              <rect x="0" y="0" width="126" height="19" rx="4" fill="#0a2038" stroke="#00d8ff" stroke-opacity="0.5" stroke-width="0.8"/>
-              <text x="10" y="13" fill="#38bdf8" class="id-mono" font-size="9" font-weight="700" letter-spacing="0.5">AI / ML DEVELOPER</text>
-              
-              <!-- Location / Year Badge -->
-              <rect x="132" y="0" width="68" height="19" rx="4" fill="#111c2e" stroke="#1f2d48" stroke-width="0.8"/>
-              <text x="142" y="13" fill="#94a3b8" class="id-mono" font-size="9" font-weight="600">IN · 2026</text>
-            </g>
-
-            <!-- Barcode Pattern Box -->
-            <g transform="translate(15, 256)">
-              <rect x="0" y="0" width="200" height="34" rx="5" fill="#050a14" stroke="#16233a" stroke-width="0.8"/>
-              <g transform="translate(10, 7)" fill="#cbd5e1">
-                <rect x="0" y="0" width="3" height="20"/>
-                <rect x="5" y="0" width="1" height="20"/>
-                <rect x="8" y="0" width="4" height="20"/>
-                <rect x="15" y="0" width="2" height="20"/>
-                <rect x="19" y="0" width="1" height="20"/>
-                <rect x="23" y="0" width="3" height="20"/>
-                <rect x="29" y="0" width="2" height="20"/>
-                <rect x="34" y="0" width="4" height="20"/>
-                <rect x="41" y="0" width="1" height="20"/>
-                <rect x="45" y="0" width="3" height="20"/>
-                <rect x="51" y="0" width="2" height="20"/>
-                <rect x="56" y="0" width="1" height="20"/>
-                <rect x="60" y="0" width="4" height="20"/>
-                <rect x="67" y="0" width="2" height="20"/>
-                <rect x="72" y="0" width="3" height="20"/>
-                <rect x="78" y="0" width="1" height="20"/>
-                <rect x="82" y="0" width="3" height="20"/>
-                <rect x="88" y="0" width="2" height="20"/>
-                <rect x="93" y="0" width="4" height="20"/>
-                <rect x="100" y="0" width="2" height="20"/>
-                <rect x="105" y="0" width="1" height="20"/>
-                <rect x="109" y="0" width="3" height="20"/>
-                <rect x="115" y="0" width="4" height="20"/>
-                <rect x="122" y="0" width="2" height="20"/>
-                <rect x="127" y="0" width="1" height="20"/>
-                <rect x="131" y="0" width="3" height="20"/>
-                <rect x="137" y="0" width="4" height="20"/>
-                <rect x="144" y="0" width="2" height="20"/>
-                <rect x="149" y="0" width="3" height="20"/>
-                <rect x="155" y="0" width="1" height="20"/>
-                <rect x="159" y="0" width="3" height="20"/>
-                <rect x="165" y="0" width="2" height="20"/>
-                <rect x="170" y="0" width="4" height="20"/>
-                <rect x="177" y="0" width="2" height="20"/>
-              </g>
-            </g>
-
-            <!-- Bottom Subtext -->
-            <text x="115" y="304" text-anchor="middle" fill="#64748b" class="id-mono" font-size="8" font-weight="600" letter-spacing="1.8">AUTHENTICATED DEV PROFILE</text>
-          </g>
-        </g>
-      </g>
+    <!-- ==================== ANIMATED LAYER: PULSING RADAR BEACONS ==================== -->
+    
+    <!-- 1. Top-Right "VERIFIED" Green Dot (x=1602, y=77) -->
+    <g transform="translate(1602, 77)">
+      <circle cx="0" cy="0" r="4.5" fill="#00ff88" />
+      <circle cx="0" cy="0" r="5" fill="none" stroke="#00ff88" style="animation: beacon-ping 2.4s infinite ease-out;" />
+      <circle cx="0" cy="0" r="5" fill="none" stroke="#00ff88" style="animation: beacon-ping 2.4s infinite ease-out 1.2s;" />
     </g>
 
-    <!-- ==================== RIGHT: VERIFIED TELEMETRY DASHBOARD ==================== -->
-    <g transform="translate(310, 64)">
-      <!-- Outer Container -->
-      <rect width="534" height="342" rx="16" fill="#080e1c" stroke="#1a2744" stroke-width="1.2"/>
-
-      <!-- Panel Header Bar -->
-      <g transform="translate(20, 20)">
-        <text x="0" y="16" fill="#ffffff" class="id-font" font-size="14.5" font-weight="800" letter-spacing="0.5">SYSTEM TELEMETRY &amp; STATS</text>
-        
-        <!-- Live System Status Badge -->
-        <g transform="translate(354, 0)">
-          <rect width="140" height="24" rx="6" fill="#072218" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
-          <circle cx="14" cy="12" r="3.5" fill="#00ff88"/>
-          <circle cx="14" cy="12" r="6" fill="none" stroke="#00ff88" stroke-opacity="0.4" stroke-width="1"/>
-          <text x="26" y="16" fill="#00ff88" class="id-mono" font-size="9.5" font-weight="700" letter-spacing="0.6">SYSTEM ACTIVE</text>
-        </g>
-      </g>
-
-      <!-- Stat Cards Grid (2x2) -->
-      
-      <!-- Card 1: RYTH PLATFORM (Top Left) -->
-      <g transform="translate(20, 52)">
-        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#247bff" stroke-opacity="0.5" stroke-width="1"/>
-        
-        <!-- Top Row: Badge & Icon -->
-        <g transform="translate(14, 12)">
-          <rect width="102" height="18" rx="4" fill="#0d233c" stroke="#247bff" stroke-opacity="0.4" stroke-width="0.8"/>
-          <text x="8" y="13" fill="#60a5fa" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">RYTH PLATFORM</text>
-          
-          <!-- Mini Users Icon (Right) -->
-          <g transform="translate(192, 2)" fill="#388bfd" opacity="0.8">
-            <path d="M6 5a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-7 2c-3.3 0-6 1.7-6 4v1h12v-1c0-2.3-2.7-4-6-4zm7 1.5c-.7 0-1.4.2-2 .5 1.2.9 2 2.1 2 3.5v1h6v-1c0-2.2-2.7-4-6-4z"/>
-          </g>
-        </g>
-
-        <!-- Value & Unit -->
-        <text x="14" y="64" fill="#ffffff" class="id-font" font-size="28" font-weight="900" letter-spacing="-0.5">200+</text>
-        <text x="96" y="60" fill="#00ff88" class="id-mono" font-size="10.5" font-weight="700">ACTIVE USERS</text>
-
-        <!-- Description -->
-        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10.5">Verified platform subscriber accounts</text>
-      </g>
-
-      <!-- Card 2: DOMAIN SPEC (Top Right) -->
-      <g transform="translate(277, 52)">
-        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#ff354f" stroke-opacity="0.5" stroke-width="1"/>
-        
-        <!-- Top Row: Badge & Icon -->
-        <g transform="translate(14, 12)">
-          <rect width="96" height="18" rx="4" fill="#2a1217" stroke="#ff354f" stroke-opacity="0.4" stroke-width="0.8"/>
-          <text x="8" y="13" fill="#f87171" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">CORE DOMAIN</text>
-          
-          <!-- Mini Brain/Neural Icon (Right) -->
-          <g transform="translate(192, 2)" fill="#ff354f" opacity="0.8">
-            <circle cx="2" cy="6" r="2"/>
-            <circle cx="14" cy="2" r="2"/>
-            <circle cx="14" cy="10" r="2"/>
-            <line x1="2" y1="6" x2="14" y2="2" stroke="#ff354f" stroke-width="1"/>
-            <line x1="2" y1="6" x2="14" y2="10" stroke="#ff354f" stroke-width="1"/>
-          </g>
-        </g>
-
-        <!-- Value & Unit -->
-        <text x="14" y="64" fill="#ffffff" class="id-font" font-size="26" font-weight="900">AI / ML</text>
-        <text x="94" y="60" fill="#f87171" class="id-mono" font-size="10.5" font-weight="700">RESEARCH</text>
-
-        <!-- Description -->
-        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10.5">Neural networks, vision &amp; pipelines</text>
-      </g>
-
-      <!-- Card 3: CORE TECHNOLOGIES (Bottom Left) -->
-      <g transform="translate(20, 160)">
-        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1"/>
-        
-        <!-- Top Row: Badge & Icon -->
-        <g transform="translate(14, 12)">
-          <rect width="102" height="18" rx="4" fill="#0d2238" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="0.8"/>
-          <text x="8" y="13" fill="#38bdf8" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">TECH ARSENAL</text>
-          
-          <!-- Mini Stack Icon (Right) -->
-          <g transform="translate(192, 2)" fill="none" stroke="#38bdf8" stroke-width="1.2" opacity="0.8">
-            <path d="M1 4L8 1L15 4L8 7L1 4Z"/>
-            <path d="M1 8L8 11L15 8"/>
-            <path d="M1 12L8 15L15 12"/>
-          </g>
-        </g>
-
-        <!-- Value & Unit -->
-        <text x="14" y="64" fill="#ffffff" class="id-font" font-size="28" font-weight="900">10+</text>
-        <text x="72" y="60" fill="#38bdf8" class="id-mono" font-size="10.5" font-weight="700">PRO TOOLS</text>
-
-        <!-- Description -->
-        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10">Python, C++, TensorFlow, React, Node</text>
-      </g>
-
-      <!-- Card 4: GITHUB ECOSYSTEM (Bottom Right) -->
-      <g transform="translate(277, 160)">
-        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
-        
-        <!-- Top Row: Badge & Icon -->
-        <g transform="translate(14, 12)">
-          <rect width="102" height="18" rx="4" fill="#072418" stroke="#00ff88" stroke-opacity="0.4" stroke-width="0.8"/>
-          <text x="8" y="13" fill="#00ff88" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">GITHUB REPO</text>
-          
-          <!-- Mini Octocat Icon (Right) -->
-          <g transform="translate(192, 2)" fill="#ffffff" opacity="0.8">
-            <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-          </g>
-        </g>
-
-        <!-- Value & Unit -->
-        <text x="14" y="62" fill="#58a6ff" class="id-mono" font-size="14.5" font-weight="800">@divyansh-x-codes</text>
-
-        <!-- Description -->
-        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10.5">Public repositories, CI/CD &amp; code</text>
-      </g>
-
-      <!-- Bottom Console Status Bar -->
-      <g transform="translate(20, 268)">
-        <rect width="494" height="42" rx="9" fill="#050a14" stroke="#1f2d48" stroke-width="1"/>
-        
-        <!-- Status Radar Dot -->
-        <circle cx="20" cy="21" r="4" fill="#00ff88"/>
-        <circle cx="20" cy="21" r="7" fill="none" stroke="#00ff88" stroke-opacity="0.3" stroke-width="1"/>
-        
-        <!-- Status Label & Message -->
-        <text x="34" y="25" fill="#00ff88" class="id-mono" font-size="11" font-weight="800">STATUS:</text>
-        <text x="92" y="25" fill="#e2e8f0" class="id-font" font-size="11.5" font-weight="600">Building autonomous AI neural models &amp; scalable web systems</text>
-
-        <!-- Right Ping Badge -->
-        <g transform="translate(408, 11)">
-          <rect width="74" height="20" rx="4" fill="#0a1f33" stroke="#247bff" stroke-opacity="0.4" stroke-width="0.8"/>
-          <text x="8" y="14" fill="#38bdf8" class="id-mono" font-size="8.5" font-weight="700">ONLINE // 99%</text>
-        </g>
-      </g>
+    <!-- 2. ID Card Online Indicator (x=472, y=268) -->
+    <g transform="translate(472, 268)">
+      <circle cx="0" cy="0" r="8" fill="#00ff88" />
+      <circle cx="0" cy="0" r="8" fill="none" stroke="#00ff88" style="animation: beacon-ping 3s infinite ease-out;" />
+      <circle cx="0" cy="0" r="8" fill="none" stroke="#00ff88" style="animation: beacon-ping 3s infinite ease-out 1.5s;" />
     </g>
 
-    <!-- Outer Frame Stroke -->
-    <rect x="1" y="1" width="878" height="428" rx="15" fill="none" stroke="url(#id-border-grad)" stroke-width="1.5"/>
+    <!-- 3. Bottom Status Beacon (x=622, y=788) -->
+    <g transform="translate(622, 788)">
+      <circle cx="0" cy="0" r="6" fill="#00ff88" />
+      <circle cx="0" cy="0" r="6" fill="none" stroke="#00ff88" style="animation: beacon-ping 2.8s infinite ease-out;" />
+      <circle cx="0" cy="0" r="6" fill="none" stroke="#00ff88" style="animation: beacon-ping 2.8s infinite ease-out 1.4s;" />
+    </g>
+
+    <!-- ==================== ANIMATED LAYER: AMBIENT NEON FRAME GLOW ==================== -->
+    <rect x="1.5" y="1.5" width="1762" height="888" rx="25" fill="none" stroke="url(#id-border-grad)" stroke-width="2.5" style="animation: border-glow 4s ease-in-out infinite;" />
   </g>
 </svg>'''
 
@@ -1116,19 +641,19 @@ for fname, content in svg_files.items():
 readme_content = '''<div align="center">
 
 <!-- HERO SECTION -->
-![Divyansh Chaudhary - Intro](./assets/hero.svg?v=3)
+![Divyansh Chaudhary - Intro](./assets/hero.svg?v=6)
 
 <!-- ABOUT & LIFE CAROUSEL -->
-![About & Capabilities](./assets/about-life.svg?v=3)
+![About & Capabilities](./assets/about-life.svg?v=6)
 
 <!-- TECH ARSENAL ORBIT -->
-![System Tech Arsenal](./assets/stack.svg?v=3)
+![System Tech Arsenal](./assets/stack.svg?v=6)
 
 <!-- VERIFIED ID & TELEMETRY DASHBOARD -->
-![Verified ID Dashboard](./assets/id-dashboard.svg?v=3)
+![Verified ID Dashboard](./assets/id-dashboard.svg?v=6)
 
 <!-- CONNECT & COLLABORATE -->
-![Let's Connect](./assets/connect.svg?v=3)
+![Let's Connect](./assets/connect.svg?v=6)
 
 <br/>
 
