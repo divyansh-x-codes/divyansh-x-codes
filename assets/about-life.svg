@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" width="880" height="360" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 370" width="880" height="370" fill="none">
   <defs>
     <style>
       .about-font {
@@ -25,18 +25,18 @@
       /* Carousel Slide Transitions */
       @keyframes slide1 {
         0%, 30% { opacity: 1; transform: translateX(0); }
-        33.3%, 97% { opacity: 0; transform: translateX(18px); pointer-events: none; }
+        33.3%, 97% { opacity: 0; transform: translateX(16px); pointer-events: none; }
         100% { opacity: 1; transform: translateX(0); }
       }
       @keyframes slide2 {
-        0%, 30% { opacity: 0; transform: translateX(-18px); pointer-events: none; }
+        0%, 30% { opacity: 0; transform: translateX(-16px); pointer-events: none; }
         33.3%, 63.3% { opacity: 1; transform: translateX(0); }
-        66.6%, 100% { opacity: 0; transform: translateX(18px); pointer-events: none; }
+        66.6%, 100% { opacity: 0; transform: translateX(16px); pointer-events: none; }
       }
       @keyframes slide3 {
-        0%, 63.3% { opacity: 0; transform: translateX(-18px); pointer-events: none; }
+        0%, 63.3% { opacity: 0; transform: translateX(-16px); pointer-events: none; }
         66.6%, 96.6% { opacity: 1; transform: translateX(0); }
-        100% { opacity: 0; transform: translateX(18px); pointer-events: none; }
+        100% { opacity: 0; transform: translateX(16px); pointer-events: none; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -65,29 +65,29 @@
     </pattern>
 
     <clipPath id="about-main-clip">
-      <rect x="0" y="0" width="880" height="360" rx="16"/>
+      <rect x="0" y="0" width="880" height="370" rx="16"/>
     </clipPath>
   </defs>
 
   <g clip-path="url(#about-main-clip)">
     <!-- Main Background -->
-    <rect width="880" height="360" fill="url(#about-bg-grad)"/>
-    <rect width="880" height="360" fill="url(#about-grid)"/>
+    <rect width="880" height="370" fill="url(#about-bg-grad)"/>
+    <rect width="880" height="370" fill="url(#about-grid)"/>
 
-    <!-- Section Header Tag -->
-    <g transform="translate(42, 28)">
-      <rect x="0" y="0" width="165" height="24" rx="6" fill="#0e1a30" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
-      <text x="12" y="16" fill="#58a6ff" class="about-mono" font-size="10.5" font-weight="700" letter-spacing="1">02 // CAPABILITIES &amp; LIFE</text>
-      <text x="185" y="17" fill="#8b949e" class="about-font" font-size="13">What drives my technical craftsmanship and daily curiosity</text>
+    <!-- Section Header Tag (Pill width 225px to avoid text overlap) -->
+    <g transform="translate(42, 26)">
+      <rect x="0" y="0" width="215" height="26" rx="6" fill="#0e1a30" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
+      <text x="12" y="17" fill="#58a6ff" class="about-mono" font-size="10.5" font-weight="700" letter-spacing="1">02 // CAPABILITIES &amp; LIFE</text>
+      <text x="235" y="18" fill="#8b949e" class="about-font" font-size="13">What drives my technical craftsmanship and daily curiosity</text>
     </g>
 
     <!-- LEFT CARD: CAPABILITIES -->
     <g transform="translate(42, 68)">
-      <rect width="386" height="260" rx="14" fill="url(#about-card-grad)" stroke="#1a2742" stroke-width="1.2"/>
+      <rect width="386" height="272" rx="14" fill="url(#about-card-grad)" stroke="#1a2742" stroke-width="1.2"/>
       
       <!-- Card Title -->
-      <text x="22" y="32" fill="#ffffff" class="about-font" font-size="15.5" font-weight="800" letter-spacing="0.5">CORE CAPABILITIES</text>
-      <text x="320" y="32" fill="#247bff" class="about-mono" font-size="11.5" font-weight="700">SPEC</text>
+      <text x="22" y="30" fill="#ffffff" class="about-font" font-size="15" font-weight="800" letter-spacing="0.5">CORE CAPABILITIES</text>
+      <text x="325" y="30" fill="#247bff" class="about-mono" font-size="11.5" font-weight="700">SPEC</text>
       <line x1="22" y1="44" x2="364" y2="44" stroke="#16233b" stroke-width="1"/>
 
       <!-- Capability 1 -->
@@ -100,7 +100,7 @@
       </g>
 
       <!-- Capability 2 -->
-      <g transform="translate(22, 122)">
+      <g transform="translate(22, 124)">
         <rect x="0" y="0" width="34" height="34" rx="8" fill="#241424" stroke="#ff354f" stroke-opacity="0.5"/>
         <path d="M11 14L17 10L23 14L17 18L11 14ZM11 20L17 24L23 20" stroke="#ff354f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         <text x="46" y="15" fill="#f0f6fc" class="about-font" font-size="13" font-weight="700">Full-Stack Architecture</text>
@@ -108,7 +108,7 @@
       </g>
 
       <!-- Capability 3 -->
-      <g transform="translate(22, 186)">
+      <g transform="translate(22, 190)">
         <rect x="0" y="0" width="34" height="34" rx="8" fill="#0f262a" stroke="#00ff88" stroke-opacity="0.5"/>
         <path d="M17 10V24M10 17H24" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
         <text x="46" y="15" fill="#f0f6fc" class="about-font" font-size="13" font-weight="700">Systems, Algorithms &amp; C++</text>
@@ -118,88 +118,94 @@
 
     <!-- RIGHT CARD: 3-SLIDE INTERESTS CAROUSEL -->
     <g transform="translate(452, 68)">
-      <rect width="386" height="260" rx="14" fill="url(#about-card-grad)" stroke="#1a2742" stroke-width="1.2"/>
+      <rect width="386" height="272" rx="14" fill="url(#about-card-grad)" stroke="#1a2742" stroke-width="1.2"/>
       
-      <!-- Card Title -->
-      <text x="22" y="32" fill="#ffffff" class="about-font" font-size="15.5" font-weight="800" letter-spacing="0.5">INTERESTS &amp; PASSIONS</text>
-      
-      <!-- Segment Progress Indicators (3 Bars) -->
-      <g transform="translate(22, 46)">
-        <!-- Seg 1 -->
-        <rect x="0" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
-        <rect x="0" y="0" height="4" rx="2" fill="#247bff" style="animation: prog1 12s infinite linear;"/>
+      <!-- Top Title & Progress Bars Section -->
+      <g transform="translate(22, 18)">
+        <text x="0" y="12" fill="#ffffff" class="about-font" font-size="15" font-weight="800" letter-spacing="0.5">INTERESTS &amp; PASSIONS</text>
+        
+        <!-- Segment Progress Indicators (3 Bars) -->
+        <g transform="translate(0, 24)">
+          <!-- Seg 1 -->
+          <rect x="0" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
+          <rect x="0" y="0" height="4" rx="2" fill="#247bff" style="animation: prog1 12s infinite linear;"/>
 
-        <!-- Seg 2 -->
-        <rect x="118" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
-        <rect x="118" y="0" height="4" rx="2" fill="#ff354f" style="animation: prog2 12s infinite linear;"/>
+          <!-- Seg 2 -->
+          <rect x="118" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
+          <rect x="118" y="0" height="4" rx="2" fill="#ff354f" style="animation: prog2 12s infinite linear;"/>
 
-        <!-- Seg 3 -->
-        <rect x="236" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
-        <rect x="236" y="0" height="4" rx="2" fill="#00ff88" style="animation: prog3 12s infinite linear;"/>
+          <!-- Seg 3 -->
+          <rect x="236" y="0" width="108" height="4" rx="2" fill="#1a2744"/>
+          <rect x="236" y="0" height="4" rx="2" fill="#00ff88" style="animation: prog3 12s infinite linear;"/>
+        </g>
       </g>
 
-      <!-- SLIDE 1: AI & ML -->
-      <g transform="translate(22, 68)" style="animation: slide1 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
-        <g transform="translate(0, 8)">
-          <rect x="0" y="0" width="76" height="22" rx="4" fill="#13233f"/>
-          <text x="8" y="15" fill="#58a6ff" class="about-mono" font-size="10" font-weight="700">01 / PASSION</text>
-          <text x="0" y="48" fill="#ffffff" class="about-font" font-size="19" font-weight="800">AI &amp; Machine Learning</text>
-          <text x="0" y="74" fill="#a0aec0" class="about-font" font-size="12.5" font-weight="400">
-            Fascinated by neural networks, predictive intelligence,
-          </text>
-          <text x="0" y="94" fill="#a0aec0" class="about-font" font-size="12.5" font-weight="400">
-            and transforming raw data into actionable decision systems.
-          </text>
+      <line x1="22" y1="58" x2="364" y2="58" stroke="#16233b" stroke-width="1"/>
 
-          <g transform="translate(0, 118)">
-            <rect x="0" y="0" width="342" height="34" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
-            <text x="12" y="21" fill="#58a6ff" class="about-mono" font-size="10.5">FOCUS: Deep Learning · Computer Vision · NLP</text>
-          </g>
+      <!-- CAROUSEL SLIDES (Positioned comfortably below separator) -->
+      
+      <!-- SLIDE 1: AI & ML -->
+      <g transform="translate(22, 72)" style="animation: slide1 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
+        <!-- Tag -->
+        <rect x="0" y="0" width="86" height="22" rx="4" fill="#13233f"/>
+        <text x="8" y="15" fill="#58a6ff" class="about-mono" font-size="10" font-weight="700">01 / PASSION</text>
+        
+        <!-- Title -->
+        <text x="0" y="44" fill="#ffffff" class="about-font" font-size="18" font-weight="800">AI &amp; Machine Learning</text>
+        
+        <!-- Description -->
+        <text x="0" y="68" fill="#a0aec0" class="about-font" font-size="12.5">Fascinated by neural networks, predictive intelligence,</text>
+        <text x="0" y="86" fill="#a0aec0" class="about-font" font-size="12.5">and transforming raw data into actionable decision systems.</text>
+
+        <!-- Bottom Pill -->
+        <g transform="translate(0, 110)">
+          <rect x="0" y="0" width="342" height="32" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
+          <text x="12" y="20" fill="#58a6ff" class="about-mono" font-size="10.5">FOCUS: Deep Learning · Computer Vision · NLP</text>
         </g>
       </g>
 
       <!-- SLIDE 2: CAR RACING -->
-      <g transform="translate(22, 68)" style="animation: slide2 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
-        <g transform="translate(0, 8)">
-          <rect x="0" y="0" width="76" height="22" rx="4" fill="#29121a"/>
-          <text x="8" y="15" fill="#ff4d6a" class="about-mono" font-size="10" font-weight="700">02 / ADRENALINE</text>
-          <text x="0" y="48" fill="#ffffff" class="about-font" font-size="19" font-weight="800">Car Racing &amp; Dynamics</text>
-          <text x="0" y="74" fill="#a0aec0" class="about-font" font-size="12.5" font-weight="400">
-            The thrill of high-speed aerodynamics, apex precision,
-          </text>
-          <text x="0" y="94" fill="#a0aec0" class="about-font" font-size="12.5" font-weight="400">
-            and high-stakes split-second decision making under pressure.
-          </text>
+      <g transform="translate(22, 72)" style="animation: slide2 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
+        <!-- Tag -->
+        <rect x="0" y="0" width="98" height="22" rx="4" fill="#29121a"/>
+        <text x="8" y="15" fill="#ff4d6a" class="about-mono" font-size="10" font-weight="700">02 / ADRENALINE</text>
+        
+        <!-- Title -->
+        <text x="0" y="44" fill="#ffffff" class="about-font" font-size="18" font-weight="800">Car Racing &amp; Dynamics</text>
+        
+        <!-- Description -->
+        <text x="0" y="68" fill="#a0aec0" class="about-font" font-size="12.5">The thrill of high-speed aerodynamics, apex precision,</text>
+        <text x="0" y="86" fill="#a0aec0" class="about-font" font-size="12.5">and high-stakes split-second decision making under pressure.</text>
 
-          <g transform="translate(0, 118)">
-            <rect x="0" y="0" width="342" height="34" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
-            <text x="12" y="21" fill="#ff4d6a" class="about-mono" font-size="10.5">ETHOS: Speed · Telemetry · Peak Precision</text>
-          </g>
+        <!-- Bottom Pill -->
+        <g transform="translate(0, 110)">
+          <rect x="0" y="0" width="342" height="32" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
+          <text x="12" y="20" fill="#ff4d6a" class="about-mono" font-size="10.5">ETHOS: Speed · Telemetry · Peak Precision</text>
         </g>
       </g>
 
       <!-- SLIDE 3: ENTREPRENEURSHIP -->
-      <g transform="translate(22, 68)" style="animation: slide3 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
-        <g transform="translate(0, 8)">
-          <rect x="0" y="0" width="76" height="22" rx="4" fill="#0c231e"/>
-          <text x="8" y="15" fill="#00ff88" class="about-mono" font-size="10" font-weight="700">03 / VENTURES</text>
-          <text x="0" y="48" fill="#ffffff" class="about-font" font-size="19" font-weight="800">Entrepreneurship &amp; Building</text>
-          <text x="0" y="74" fill="#a0aec0" class="about-font" font-size="12.5" font-weight="400">
-            Founder of Ryth (200+ active users). Building products
-          </text>
-          <text x="0" y="94" fill="#a0aec0" class="about-font" font-size="12.5" font-weight="400">
-            that blend user growth, smart content and intuitive design.
-          </text>
+      <g transform="translate(22, 72)" style="animation: slide3 12s infinite cubic-bezier(0.4, 0, 0.2, 1);">
+        <!-- Tag -->
+        <rect x="0" y="0" width="92" height="22" rx="4" fill="#0c231e"/>
+        <text x="8" y="15" fill="#00ff88" class="about-mono" font-size="10" font-weight="700">03 / VENTURES</text>
+        
+        <!-- Title -->
+        <text x="0" y="44" fill="#ffffff" class="about-font" font-size="18" font-weight="800">Entrepreneurship &amp; Building</text>
+        
+        <!-- Description -->
+        <text x="0" y="68" fill="#a0aec0" class="about-font" font-size="12.5">Founder of Ryth (200+ active users). Building products</text>
+        <text x="0" y="86" fill="#a0aec0" class="about-font" font-size="12.5">that blend user growth, smart content and intuitive design.</text>
 
-          <g transform="translate(0, 118)">
-            <rect x="0" y="0" width="342" height="34" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
-            <text x="12" y="21" fill="#00ff88" class="about-mono" font-size="10.5">VENTURE: Ryth Platform · Growth &amp; Tech</text>
-          </g>
+        <!-- Bottom Pill -->
+        <g transform="translate(0, 110)">
+          <rect x="0" y="0" width="342" height="32" rx="6" fill="#070c18" stroke="#1f2d48" stroke-width="1"/>
+          <text x="12" y="20" fill="#00ff88" class="about-mono" font-size="10.5">VENTURE: Ryth Platform · Growth &amp; Tech</text>
         </g>
       </g>
     </g>
 
     <!-- Outer Border -->
-    <rect x="1" y="1" width="878" height="358" rx="15" fill="none" stroke="url(#about-border-grad)" stroke-width="1.5"/>
+    <rect x="1" y="1" width="878" height="368" rx="15" fill="none" stroke="url(#about-border-grad)" stroke-width="1.5"/>
   </g>
 </svg>

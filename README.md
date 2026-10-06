@@ -1,19 +1,19 @@
 <div align="center">
 
 <!-- HERO SECTION -->
-![Divyansh Chaudhary - Intro](./assets/hero.svg?v=2)
+![Divyansh Chaudhary - Intro](./assets/hero.svg?v=3)
 
 <!-- ABOUT & LIFE CAROUSEL -->
-![About & Capabilities](./assets/about-life.svg?v=2)
+![About & Capabilities](./assets/about-life.svg?v=3)
 
 <!-- TECH ARSENAL ORBIT -->
-![System Tech Arsenal](./assets/stack.svg?v=2)
+![System Tech Arsenal](./assets/stack.svg?v=3)
 
 <!-- VERIFIED ID & TELEMETRY DASHBOARD -->
-![Verified ID Dashboard](./assets/id-dashboard.svg?v=2)
+![Verified ID Dashboard](./assets/id-dashboard.svg?v=3)
 
 <!-- CONNECT & COLLABORATE -->
-![Let's Connect](./assets/connect.svg?v=2)
+![Let's Connect](./assets/connect.svg?v=3)
 
 <br/>
 

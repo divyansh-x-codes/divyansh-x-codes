@@ -53,9 +53,9 @@
 
     <!-- Section Header Tag -->
     <g transform="translate(42, 26)">
-      <rect x="0" y="0" width="165" height="24" rx="6" fill="#0d182b" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
-      <text x="12" y="16" fill="#58a6ff" class="conn-mono" font-size="10.5" font-weight="700" letter-spacing="1">05 // LET'S CONNECT</text>
-      <text x="185" y="17" fill="#8b949e" class="conn-font" font-size="13">Explore videos, community updates, codebases and collaborations</text>
+      <rect x="0" y="0" width="165" height="26" rx="6" fill="#0d182b" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
+      <text x="12" y="17" fill="#58a6ff" class="conn-mono" font-size="10.5" font-weight="700" letter-spacing="1">05 // LET'S CONNECT</text>
+      <text x="185" y="18" fill="#8b949e" class="conn-font" font-size="13">Explore videos, community updates, codebases and collaborations</text>
     </g>
 
     <!-- LEFT: POINTING CHARACTER (right_pointing.png) -->

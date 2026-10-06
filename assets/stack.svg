@@ -44,14 +44,13 @@
 
     <!-- Header -->
     <g transform="translate(42, 26)">
-      <rect x="0" y="0" width="170" height="24" rx="6" fill="#0d182b" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
-      <text x="12" y="16" fill="#58a6ff" class="stack-mono" font-size="10.5" font-weight="700" letter-spacing="1">03 // TECH ARSENAL</text>
-      <text x="190" y="17" fill="#8b949e" class="stack-font" font-size="13">Core languages, AI/ML frameworks, and platform tooling</text>
+      <rect x="0" y="0" width="170" height="26" rx="6" fill="#0d182b" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
+      <text x="12" y="17" fill="#58a6ff" class="stack-mono" font-size="10.5" font-weight="700" letter-spacing="1">03 // TECH ARSENAL</text>
+      <text x="190" y="18" fill="#8b949e" class="stack-font" font-size="13">Core languages, AI/ML frameworks, and platform tooling</text>
     </g>
 
     <!-- CENTER PLANETARY ORBIT SYSTEM -->
     <g transform="translate(440, 140)">
-      <!-- Background Star Glow -->
       <circle cx="0" cy="0" r="110" fill="#247bff" fill-opacity="0.08"/>
 
       <!-- Orbit 1: Inner -->
