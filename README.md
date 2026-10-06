@@ -10,7 +10,7 @@
 ![System Tech Arsenal](./assets/stack.svg?v=5)
 
 <!-- VERIFIED ID & TELEMETRY DASHBOARD -->
-![Verified ID Dashboard](./assets/id-dashboard.svg?v=4)
+![Verified ID Dashboard](./assets/id-dashboard.svg?v=5)
 
 <!-- CONNECT & COLLABORATE -->
 ![Let's Connect](./assets/connect.svg?v=4)

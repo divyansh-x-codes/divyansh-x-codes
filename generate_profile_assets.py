@@ -650,12 +650,12 @@ id_dashboard_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
       }}
 
       @keyframes lanyard-gentle-swing {{
-        0%, 100% {{ transform: rotate(-1.7deg); }}
-        50% {{ transform: rotate(1.7deg); }}
+        0%, 100% {{ transform: rotate(-1.5deg); }}
+        50% {{ transform: rotate(1.5deg); }}
       }}
       @keyframes foil-sweep {{
         0% {{ transform: translateX(-150%) rotate(25deg); opacity: 0; }}
-        20% {{ opacity: 0.6; }}
+        20% {{ opacity: 0.5; }}
         40% {{ transform: translateX(250%) rotate(25deg); opacity: 0; }}
         100% {{ transform: translateX(250%) rotate(25deg); opacity: 0; }}
       }}
@@ -665,85 +665,119 @@ id_dashboard_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
     </style>
 
     <linearGradient id="id-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#060914"/>
-      <stop offset="100%" stop-color="#0a1222"/>
+      <stop offset="0%" stop-color="#050813"/>
+      <stop offset="50%" stop-color="#081022"/>
+      <stop offset="100%" stop-color="#040711"/>
     </linearGradient>
 
     <linearGradient id="id-card-foil" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f1b33"/>
-      <stop offset="50%" stop-color="#142445"/>
-      <stop offset="100%" stop-color="#091122"/>
+      <stop offset="0%" stop-color="#0d172a"/>
+      <stop offset="50%" stop-color="#111f38"/>
+      <stop offset="100%" stop-color="#080e1c"/>
     </linearGradient>
 
     <linearGradient id="id-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#247bff"/>
-      <stop offset="50%" stop-color="#1a2742"/>
-      <stop offset="100%" stop-color="#ff354f"/>
+      <stop offset="0%" stop-color="#247bff" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ff354f" stop-opacity="0.85"/>
     </linearGradient>
 
     <linearGradient id="id-shimmer-grad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.28"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
+
+    <pattern id="id-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#247bff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
 
     <clipPath id="id-main-clip">
       <rect x="0" y="0" width="880" height="430" rx="16"/>
     </clipPath>
 
     <clipPath id="id-badge-clip">
-      <rect x="0" y="0" width="220" height="320" rx="14"/>
+      <rect x="0" y="0" width="230" height="342" rx="16"/>
     </clipPath>
 
     <clipPath id="id-badge-photo-clip">
-      <rect x="0" y="0" width="192" height="150" rx="10"/>
+      <rect x="0" y="0" width="200" height="152" rx="10"/>
     </clipPath>
   </defs>
 
   <g clip-path="url(#id-main-clip)">
     <!-- Main Background -->
     <rect width="880" height="430" fill="url(#id-bg-grad)"/>
+    <rect width="880" height="430" fill="url(#id-grid)"/>
 
-    <!-- Section Header Tag -->
-    <g transform="translate(42, 26)">
-      <rect x="0" y="0" width="180" height="26" rx="6" fill="#0d182b" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
-      <text x="12" y="17" fill="#58a6ff" class="id-mono" font-size="10.5" font-weight="700" letter-spacing="1">04 // VERIFIED CREDENTIALS</text>
-      <text x="200" y="18" fill="#8b949e" class="id-font" font-size="13">Cryptographically verified metrics, builder stats &amp; credentials</text>
+    <!-- ==================== HEADER ==================== -->
+    <g transform="translate(36, 22)">
+      <!-- Section Pill Badge -->
+      <rect x="0" y="0" width="200" height="28" rx="7" fill="#0c182b" stroke="#247bff" stroke-opacity="0.5" stroke-width="1.2"/>
+      <circle cx="14" cy="14" r="3.5" fill="#247bff"/>
+      <text x="26" y="18" fill="#58a6ff" class="id-mono" font-size="11" font-weight="800" letter-spacing="1">04 // TELEMETRY &amp; ID</text>
+      
+      <!-- Subtitle -->
+      <text x="216" y="13" fill="#ffffff" class="id-font" font-size="13.5" font-weight="700">Verified Developer Identity &amp; System Metrics</text>
+      <text x="216" y="26" fill="#64748b" class="id-mono" font-size="9" font-weight="700" letter-spacing="1.2">LIVE DATA · CRYPTOGRAPHICALLY AUTHENTICATED</text>
     </g>
 
-    <!-- LEFT: HANGING LANYARD ID BADGE -->
-    <g transform="translate(170, 55)">
-      <path d="M-20 -55 L-6 -10 L6 -10 L20 -55" fill="#121e36" stroke="#247bff" stroke-width="1.5"/>
-      <rect x="-14" y="-12" width="28" height="14" rx="3" fill="#8b949e" stroke="#c9d1d9" stroke-width="1"/>
-      <circle cx="0" cy="-5" r="3" fill="#070b16"/>
-      <rect x="-8" y="2" width="16" height="8" rx="2" fill="#586069"/>
+    <!-- ==================== LEFT: LANYARD ID BADGE ==================== -->
+    <g transform="translate(160, 50)">
+      <!-- Strap Top -->
+      <path d="M-22 -50 L-7 -10 L7 -10 L22 -50" fill="#0b1322" stroke="#247bff" stroke-width="1.2"/>
+      <rect x="-15" y="-12" width="30" height="15" rx="3" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <circle cx="0" cy="-4.5" r="3" fill="#070b16"/>
+      <rect x="-8" y="3" width="16" height="8" rx="2" fill="#64748b"/>
 
+      <!-- Swinging Badge -->
       <g style="transform-origin: 0px 0px; animation: lanyard-gentle-swing 6s ease-in-out infinite alternate;">
-        <g transform="translate(-110, 12)">
-          <rect x="0" y="0" width="220" height="330" rx="14" fill="url(#id-card-foil)" stroke="url(#id-border-grad)" stroke-width="1.8" style="filter: drop-shadow(0 12px 28px rgba(0,0,0,0.6));"/>
+        <g transform="translate(-115, 14)">
+          <!-- Card Outer Shell -->
+          <rect x="0" y="0" width="230" height="342" rx="16" fill="url(#id-card-foil)" stroke="url(#id-border-grad)" stroke-width="1.6" style="filter: drop-shadow(0 14px 30px rgba(0,0,0,0.7));"/>
           
           <g clip-path="url(#id-badge-clip)">
-            <rect x="-80" y="-80" width="120" height="480" fill="url(#id-shimmer-grad)" style="animation: foil-sweep 7s infinite ease-in-out;"/>
+            <!-- Holographic Shimmer Sweep -->
+            <rect x="-80" y="-80" width="120" height="500" fill="url(#id-shimmer-grad)" style="animation: foil-sweep 7s infinite ease-in-out;"/>
 
-            <rect x="85" y="10" width="50" height="6" rx="3" fill="#070b16" stroke="#1f2d48" stroke-width="1"/>
+            <!-- Top Lanyard Slot Cutout -->
+            <rect x="90" y="10" width="50" height="6" rx="3" fill="#050813" stroke="#1f2d48" stroke-width="1"/>
 
-            <text x="14" y="36" fill="#58a6ff" class="id-mono" font-size="9" font-weight="700" letter-spacing="1">DEV IDENTIFICATION</text>
-            <circle cx="196" cy="33" r="5" fill="#00ff88"/>
+            <!-- Header Row -->
+            <text x="15" y="34" fill="#38bdf8" class="id-mono" font-size="9.5" font-weight="800" letter-spacing="1.2">DEV IDENTIFICATION</text>
+            <circle cx="210" cy="30" r="7" fill="none" stroke="#00ff88" stroke-opacity="0.35" stroke-width="1.2"/>
+            <circle cx="210" cy="30" r="4" fill="#00ff88"/>
 
-            <g transform="translate(14, 46)" clip-path="url(#id-badge-photo-clip)">
-              <rect width="192" height="150" fill="#080e1a"/>
-              <image href="{id_b64}" x="-10" y="-15" width="210" height="180" preserveAspectRatio="xMidYMid slice"/>
-              <rect width="192" height="150" rx="10" fill="none" stroke="#247bff" stroke-opacity="0.4" stroke-width="2"/>
+            <!-- ID Photo Container -->
+            <g transform="translate(15, 44)" clip-path="url(#id-badge-photo-clip)">
+              <rect width="200" height="152" fill="#080e1a"/>
+              <image href="{id_b64}" x="-10" y="-15" width="220" height="182" preserveAspectRatio="xMidYMid slice"/>
+              <rect width="200" height="152" rx="10" fill="none" stroke="#247bff" stroke-opacity="0.5" stroke-width="1.5"/>
+              <!-- Cyber Corner Ticks -->
+              <path d="M 0 16 L 0 0 L 16 0" stroke="#00d8ff" stroke-width="2" fill="none"/>
+              <path d="M 184 0 L 200 0 L 200 16" stroke="#00d8ff" stroke-width="2" fill="none"/>
+              <path d="M 0 136 L 0 152 L 16 152" stroke="#00d8ff" stroke-width="2" fill="none"/>
+              <path d="M 184 152 L 200 152 L 200 136" stroke="#00d8ff" stroke-width="2" fill="none"/>
             </g>
 
-            <text x="14" y="218" fill="#ffffff" class="id-font" font-size="14" font-weight="800">DIVYANSH CHAUDHARY</text>
-            <text x="14" y="234" fill="#58a6ff" class="id-mono" font-size="10.5" font-weight="600">AI / ML DEVELOPER</text>
-            <text x="14" y="249" fill="#8b949e" class="id-font" font-size="10">ID: DC-2026-X88 · SONIPAT, IN</text>
+            <!-- Name -->
+            <text x="15" y="218" fill="#ffffff" class="id-font" font-size="14" font-weight="800" letter-spacing="0.3">DIVYANSH CHAUDHARY</text>
 
-            <!-- Barcode Pattern -->
-            <g transform="translate(14, 264)">
-              <rect x="0" y="0" width="192" height="32" rx="4" fill="#070c18" stroke="#16233a" stroke-width="0.8"/>
-              <g transform="translate(12, 6)" fill="#c9d1d9">
+            <!-- Role Tag Pill & Region Tag Pill -->
+            <g transform="translate(15, 228)">
+              <!-- Role Badge -->
+              <rect x="0" y="0" width="126" height="19" rx="4" fill="#0a2038" stroke="#00d8ff" stroke-opacity="0.5" stroke-width="0.8"/>
+              <text x="10" y="13" fill="#38bdf8" class="id-mono" font-size="9" font-weight="700" letter-spacing="0.5">AI / ML DEVELOPER</text>
+              
+              <!-- Location / Year Badge -->
+              <rect x="132" y="0" width="68" height="19" rx="4" fill="#111c2e" stroke="#1f2d48" stroke-width="0.8"/>
+              <text x="142" y="13" fill="#94a3b8" class="id-mono" font-size="9" font-weight="600">IN · 2026</text>
+            </g>
+
+            <!-- Barcode Pattern Box -->
+            <g transform="translate(15, 256)">
+              <rect x="0" y="0" width="200" height="34" rx="5" fill="#050a14" stroke="#16233a" stroke-width="0.8"/>
+              <g transform="translate(10, 7)" fill="#cbd5e1">
                 <rect x="0" y="0" width="3" height="20"/>
                 <rect x="5" y="0" width="1" height="20"/>
                 <rect x="8" y="0" width="4" height="20"/>
@@ -776,63 +810,156 @@ id_dashboard_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 
                 <rect x="155" y="0" width="1" height="20"/>
                 <rect x="159" y="0" width="3" height="20"/>
                 <rect x="165" y="0" width="2" height="20"/>
+                <rect x="170" y="0" width="4" height="20"/>
+                <rect x="177" y="0" width="2" height="20"/>
               </g>
             </g>
 
-            <text x="110" y="310" text-anchor="middle" fill="#586069" class="id-mono" font-size="8" letter-spacing="2">AUTHENTICATED PROFILE</text>
+            <!-- Bottom Subtext -->
+            <text x="115" y="304" text-anchor="middle" fill="#64748b" class="id-mono" font-size="8" font-weight="600" letter-spacing="1.8">AUTHENTICATED DEV PROFILE</text>
           </g>
         </g>
       </g>
     </g>
 
-    <!-- RIGHT: VERIFIED METRICS DASHBOARD -->
-    <g transform="translate(320, 68)">
-      <rect width="518" height="330" rx="14" fill="#0b1322" stroke="#1a2742" stroke-width="1.2"/>
+    <!-- ==================== RIGHT: VERIFIED TELEMETRY DASHBOARD ==================== -->
+    <g transform="translate(310, 64)">
+      <!-- Outer Container -->
+      <rect width="534" height="342" rx="16" fill="#080e1c" stroke="#1a2744" stroke-width="1.2"/>
 
-      <g transform="translate(24, 22)">
-        <text x="0" y="14" fill="#ffffff" class="id-font" font-size="16" font-weight="800">SYSTEM TELEMETRY &amp; STATS</text>
-        <rect x="370" y="0" width="100" height="22" rx="4" fill="#0f2620" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
-        <text x="380" y="15" fill="#00ff88" class="id-mono" font-size="10" font-weight="700">● VERIFIED</text>
+      <!-- Panel Header Bar -->
+      <g transform="translate(20, 20)">
+        <text x="0" y="16" fill="#ffffff" class="id-font" font-size="14.5" font-weight="800" letter-spacing="0.5">SYSTEM TELEMETRY &amp; STATS</text>
+        
+        <!-- Live System Status Badge -->
+        <g transform="translate(354, 0)">
+          <rect width="140" height="24" rx="6" fill="#072218" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
+          <circle cx="14" cy="12" r="3.5" fill="#00ff88"/>
+          <circle cx="14" cy="12" r="6" fill="none" stroke="#00ff88" stroke-opacity="0.4" stroke-width="1"/>
+          <text x="26" y="16" fill="#00ff88" class="id-mono" font-size="9.5" font-weight="700" letter-spacing="0.6">SYSTEM ACTIVE</text>
+        </g>
       </g>
 
       <!-- Stat Cards Grid (2x2) -->
-      <g transform="translate(24, 54)">
-        <rect width="225" height="95" rx="10" fill="#080e1b" stroke="#247bff" stroke-opacity="0.5" stroke-width="1"/>
-        <text x="16" y="24" fill="#8b949e" class="id-mono" font-size="10.5" font-weight="600">RYTH PLATFORM</text>
-        <text x="16" y="60" fill="#ffffff" class="id-font" font-size="32" font-weight="900" letter-spacing="-0.5">200+</text>
-        <text x="100" y="56" fill="#00ff88" class="id-mono" font-size="11" font-weight="700">USERS</text>
-        <text x="16" y="82" fill="#58a6ff" class="id-font" font-size="11">Verified Active User Accounts</text>
+      
+      <!-- Card 1: RYTH PLATFORM (Top Left) -->
+      <g transform="translate(20, 52)">
+        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#247bff" stroke-opacity="0.5" stroke-width="1"/>
+        
+        <!-- Top Row: Badge & Icon -->
+        <g transform="translate(14, 12)">
+          <rect width="102" height="18" rx="4" fill="#0d233c" stroke="#247bff" stroke-opacity="0.4" stroke-width="0.8"/>
+          <text x="8" y="13" fill="#60a5fa" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">RYTH PLATFORM</text>
+          
+          <!-- Mini Users Icon (Right) -->
+          <g transform="translate(192, 2)" fill="#388bfd" opacity="0.8">
+            <path d="M6 5a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-7 2c-3.3 0-6 1.7-6 4v1h12v-1c0-2.3-2.7-4-6-4zm7 1.5c-.7 0-1.4.2-2 .5 1.2.9 2 2.1 2 3.5v1h6v-1c0-2.2-2.7-4-6-4z"/>
+          </g>
+        </g>
+
+        <!-- Value & Unit -->
+        <text x="14" y="64" fill="#ffffff" class="id-font" font-size="28" font-weight="900" letter-spacing="-0.5">200+</text>
+        <text x="96" y="60" fill="#00ff88" class="id-mono" font-size="10.5" font-weight="700">ACTIVE USERS</text>
+
+        <!-- Description -->
+        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10.5">Verified platform subscriber accounts</text>
       </g>
 
-      <g transform="translate(269, 54)">
-        <rect width="225" height="95" rx="10" fill="#080e1b" stroke="#ff354f" stroke-opacity="0.5" stroke-width="1"/>
-        <text x="16" y="24" fill="#8b949e" class="id-mono" font-size="10.5" font-weight="600">DOMAIN SPEC</text>
-        <text x="16" y="60" fill="#ffffff" class="id-font" font-size="28" font-weight="900">AI / ML</text>
-        <text x="16" y="82" fill="#ff7b72" class="id-font" font-size="11">Neural Networks &amp; Pipelines</text>
+      <!-- Card 2: DOMAIN SPEC (Top Right) -->
+      <g transform="translate(277, 52)">
+        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#ff354f" stroke-opacity="0.5" stroke-width="1"/>
+        
+        <!-- Top Row: Badge & Icon -->
+        <g transform="translate(14, 12)">
+          <rect width="96" height="18" rx="4" fill="#2a1217" stroke="#ff354f" stroke-opacity="0.4" stroke-width="0.8"/>
+          <text x="8" y="13" fill="#f87171" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">CORE DOMAIN</text>
+          
+          <!-- Mini Brain/Neural Icon (Right) -->
+          <g transform="translate(192, 2)" fill="#ff354f" opacity="0.8">
+            <circle cx="2" cy="6" r="2"/>
+            <circle cx="14" cy="2" r="2"/>
+            <circle cx="14" cy="10" r="2"/>
+            <line x1="2" y1="6" x2="14" y2="2" stroke="#ff354f" stroke-width="1"/>
+            <line x1="2" y1="6" x2="14" y2="10" stroke="#ff354f" stroke-width="1"/>
+          </g>
+        </g>
+
+        <!-- Value & Unit -->
+        <text x="14" y="64" fill="#ffffff" class="id-font" font-size="26" font-weight="900">AI / ML</text>
+        <text x="94" y="60" fill="#f87171" class="id-mono" font-size="10.5" font-weight="700">RESEARCH</text>
+
+        <!-- Description -->
+        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10.5">Neural networks, vision &amp; pipelines</text>
       </g>
 
-      <g transform="translate(24, 162)">
-        <rect width="225" height="95" rx="10" fill="#080e1b" stroke="#1f2d48" stroke-width="1"/>
-        <text x="16" y="24" fill="#8b949e" class="id-mono" font-size="10.5" font-weight="600">CORE TECHNOLOGIES</text>
-        <text x="16" y="60" fill="#ffffff" class="id-font" font-size="32" font-weight="900">10+</text>
-        <text x="80" y="56" fill="#58a6ff" class="id-mono" font-size="11" font-weight="700">TOOLS</text>
-        <text x="16" y="82" fill="#8b949e" class="id-font" font-size="11">C++, Py, TF, React, Node.js</text>
+      <!-- Card 3: CORE TECHNOLOGIES (Bottom Left) -->
+      <g transform="translate(20, 160)">
+        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1"/>
+        
+        <!-- Top Row: Badge & Icon -->
+        <g transform="translate(14, 12)">
+          <rect width="102" height="18" rx="4" fill="#0d2238" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="0.8"/>
+          <text x="8" y="13" fill="#38bdf8" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">TECH ARSENAL</text>
+          
+          <!-- Mini Stack Icon (Right) -->
+          <g transform="translate(192, 2)" fill="none" stroke="#38bdf8" stroke-width="1.2" opacity="0.8">
+            <path d="M1 4L8 1L15 4L8 7L1 4Z"/>
+            <path d="M1 8L8 11L15 8"/>
+            <path d="M1 12L8 15L15 12"/>
+          </g>
+        </g>
+
+        <!-- Value & Unit -->
+        <text x="14" y="64" fill="#ffffff" class="id-font" font-size="28" font-weight="900">10+</text>
+        <text x="72" y="60" fill="#38bdf8" class="id-mono" font-size="10.5" font-weight="700">PRO TOOLS</text>
+
+        <!-- Description -->
+        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10">Python, C++, TensorFlow, React, Node</text>
       </g>
 
-      <g transform="translate(269, 162)">
-        <rect width="225" height="95" rx="10" fill="#080e1b" stroke="#1f2d48" stroke-width="1"/>
-        <text x="16" y="24" fill="#8b949e" class="id-mono" font-size="10.5" font-weight="600">HANDLE // GITHUB</text>
-        <text x="16" y="58" fill="#58a6ff" class="id-mono" font-size="18" font-weight="800">@divyansh-x</text>
-        <text x="16" y="82" fill="#00ff88" class="id-font" font-size="11">Open Source &amp; Collaborations</text>
+      <!-- Card 4: GITHUB ECOSYSTEM (Bottom Right) -->
+      <g transform="translate(277, 160)">
+        <rect width="237" height="96" rx="10" fill="#0c1628" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
+        
+        <!-- Top Row: Badge & Icon -->
+        <g transform="translate(14, 12)">
+          <rect width="102" height="18" rx="4" fill="#072418" stroke="#00ff88" stroke-opacity="0.4" stroke-width="0.8"/>
+          <text x="8" y="13" fill="#00ff88" class="id-mono" font-size="8.5" font-weight="700" letter-spacing="0.5">GITHUB REPO</text>
+          
+          <!-- Mini Octocat Icon (Right) -->
+          <g transform="translate(192, 2)" fill="#ffffff" opacity="0.8">
+            <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </g>
+        </g>
+
+        <!-- Value & Unit -->
+        <text x="14" y="62" fill="#58a6ff" class="id-mono" font-size="14.5" font-weight="800">@divyansh-x-codes</text>
+
+        <!-- Description -->
+        <text x="14" y="82" fill="#94a3b8" class="id-font" font-size="10.5">Public repositories, CI/CD &amp; code</text>
       </g>
 
-      <g transform="translate(24, 272)">
-        <rect width="470" height="38" rx="8" fill="#070c18" stroke="#1a2742" stroke-width="1"/>
-        <circle cx="20" cy="19" r="4" fill="#00ff88"/>
-        <text x="34" y="23" fill="#c9d1d9" class="id-font" font-size="11.5" font-weight="600">STATUS: Building autonomous AI systems &amp; high-scale platforms</text>
+      <!-- Bottom Console Status Bar -->
+      <g transform="translate(20, 268)">
+        <rect width="494" height="42" rx="9" fill="#050a14" stroke="#1f2d48" stroke-width="1"/>
+        
+        <!-- Status Radar Dot -->
+        <circle cx="20" cy="21" r="4" fill="#00ff88"/>
+        <circle cx="20" cy="21" r="7" fill="none" stroke="#00ff88" stroke-opacity="0.3" stroke-width="1"/>
+        
+        <!-- Status Label & Message -->
+        <text x="34" y="25" fill="#00ff88" class="id-mono" font-size="11" font-weight="800">STATUS:</text>
+        <text x="92" y="25" fill="#e2e8f0" class="id-font" font-size="11.5" font-weight="600">Building autonomous AI neural models &amp; scalable web systems</text>
+
+        <!-- Right Ping Badge -->
+        <g transform="translate(408, 11)">
+          <rect width="74" height="20" rx="4" fill="#0a1f33" stroke="#247bff" stroke-opacity="0.4" stroke-width="0.8"/>
+          <text x="8" y="14" fill="#38bdf8" class="id-mono" font-size="8.5" font-weight="700">ONLINE // 99%</text>
+        </g>
       </g>
     </g>
 
+    <!-- Outer Frame Stroke -->
     <rect x="1" y="1" width="878" height="428" rx="15" fill="none" stroke="url(#id-border-grad)" stroke-width="1.5"/>
   </g>
 </svg>'''
