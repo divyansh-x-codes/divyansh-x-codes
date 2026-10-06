@@ -235,10 +235,34 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
         font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
       }}
 
-      @keyframes icon-pulse {{
-        0%, 100% {{ transform: scale(1); opacity: 0.9; }}
-        50% {{ transform: scale(1.05); opacity: 1; }}
+      @keyframes slide-anim-1 {{
+        0%, 30% {{ opacity: 1; transform: translateY(0); pointer-events: auto; }}
+        33.3%, 96.7% {{ opacity: 0; transform: translateY(6px); pointer-events: none; }}
+        100% {{ opacity: 1; transform: translateY(0); pointer-events: auto; }}
       }}
+
+      @keyframes slide-anim-2 {{
+        0%, 30% {{ opacity: 0; transform: translateY(-6px); pointer-events: none; }}
+        33.3%, 63.3% {{ opacity: 1; transform: translateY(0); pointer-events: auto; }}
+        66.6%, 100% {{ opacity: 0; transform: translateY(6px); pointer-events: none; }}
+      }}
+
+      @keyframes slide-anim-3 {{
+        0%, 63.3% {{ opacity: 0; transform: translateY(-6px); pointer-events: none; }}
+        66.6%, 96.7% {{ opacity: 1; transform: translateY(0); pointer-events: auto; }}
+        100% {{ opacity: 0; transform: translateY(-6px); pointer-events: none; }}
+      }}
+
+      .carousel-slide-1 {{
+        animation: slide-anim-1 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      }}
+      .carousel-slide-2 {{
+        animation: slide-anim-2 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      }}
+      .carousel-slide-3 {{
+        animation: slide-anim-3 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      }}
+
       @keyframes border-breathe {{
         0%, 100% {{ stroke-opacity: 0.5; }}
         50% {{ stroke-opacity: 0.85; }}
@@ -246,6 +270,9 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
 
       @media (prefers-reduced-motion: reduce) {{
         * {{ animation: none !important; }}
+        .carousel-slide-1 {{ opacity: 1 !important; transform: none !important; }}
+        .carousel-slide-2 {{ display: none !important; }}
+        .carousel-slide-3 {{ display: none !important; }}
       }}
     </style>
 
@@ -304,7 +331,7 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
       <line x1="20" y1="44" x2="366" y2="44" stroke="#16233b" stroke-width="1"/>
 
       <!-- Capability 1: AI / ML -->
-      <g transform="translate(20, 56)">
+      <g transform="translate(20, 58)">
         <rect x="0" y="0" width="38" height="38" rx="8" fill="#0d2238" stroke="#247bff" stroke-opacity="0.5" stroke-width="1"/>
         <path d="M13 19C13 15.7 15.7 13 19 13C22.3 13 25 15.7 25 19C25 22.3 22.3 25 19 25" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
         <circle cx="19" cy="19" r="2.5" fill="#00ff88"/>
@@ -321,15 +348,15 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
       </g>
 
       <!-- Capability 3: Systems & C++ -->
-      <g transform="translate(20, 196)">
+      <g transform="translate(20, 194)">
         <rect x="0" y="0" width="38" height="38" rx="8" fill="#072418" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
         <path d="M19 12V26M12 19H26" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
         <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Systems, Algorithms &amp; C++</text>
-        <text x="48" y="32" fill="#94a3b8" class="about-font" font-size="10.5">Low-level efficiency, DSA, Competitive Code</text>
+        <text x="48" y="32" fill="#94a3b8" class="about-font" font-size="10.5">Low-level efficiency, Clean Code &amp; Git ELT</text>
       </g>
     </g>
 
-    <!-- ==================== RIGHT CARD: PASSIONS & ETHOS ==================== -->
+    <!-- ==================== RIGHT CARD: PASSIONS & ETHOS (CAROUSEL) ==================== -->
     <g transform="translate(452, 66)">
       <!-- Card Container -->
       <rect width="386" height="276" rx="14" fill="url(#about-card-grad)" stroke="#1a2744" stroke-width="1.2"/>
@@ -340,38 +367,76 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
       <text x="340" y="28" text-anchor="middle" fill="#ff7b72" class="about-mono" font-size="9" font-weight="700">ETHOS</text>
       <line x1="20" y1="44" x2="366" y2="44" stroke="#16233b" stroke-width="1"/>
 
-      <!-- Passion 1: Car Racing -->
-      <g transform="translate(20, 56)">
-        <rect x="0" y="0" width="38" height="38" rx="8" fill="#261318" stroke="#ff354f" stroke-opacity="0.5" stroke-width="1"/>
-        <!-- Speedometer / Racing Icon -->
-        <path d="M13 23A8 8 0 1 1 25 23" fill="none" stroke="#ff7b72" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="19" y1="19" x2="23" y2="15" stroke="#ff354f" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="19" cy="19" r="1.5" fill="#ffffff"/>
-        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Car Racing &amp; Dynamics</text>
-        <text x="48" y="32" fill="#f87171" class="about-font" font-size="10.5">Aerodynamics, Telemetry &amp; Peak Precision</text>
+      <!-- SLIDE 1: ADRENALINE / RACING -->
+      <g class="carousel-slide-1" transform="translate(20, 56)" style="opacity: 1;">
+        <!-- Badge & Progress Indicators -->
+        <rect x="0" y="0" width="118" height="20" rx="4" fill="#2a1217" stroke="#ff354f" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="8" y="14" fill="#ff7b72" class="about-mono" font-size="9.5" font-weight="700" letter-spacing="1">01 / ADRENALINE</text>
+        
+        <rect x="226" y="7" width="36" height="4" rx="2" fill="#ff354f"/>
+        <rect x="268" y="7" width="36" height="4" rx="2" fill="#1e293b"/>
+        <rect x="310" y="7" width="36" height="4" rx="2" fill="#1e293b"/>
+
+        <!-- Title -->
+        <text x="0" y="48" fill="#ffffff" class="about-font" font-size="18" font-weight="800" letter-spacing="0.2">Car Racing &amp; Dynamics</text>
+
+        <!-- Description -->
+        <text x="0" y="74" fill="#94a3b8" class="about-font" font-size="12">The thrill of high-speed aerodynamics, apex precision, and</text>
+        <text x="0" y="94" fill="#94a3b8" class="about-font" font-size="12">high-stakes split-second decision making under pressure.</text>
+
+        <!-- Ethos Box -->
+        <g transform="translate(0, 126)">
+          <rect x="0" y="0" width="346" height="42" rx="8" fill="#180e12" stroke="#ff354f" stroke-opacity="0.35" stroke-width="1"/>
+          <text x="14" y="26" fill="#ff7b72" class="about-mono" font-size="11" font-weight="700" letter-spacing="0.6">ETHOS: Speed · Telemetry · Peak Precision</text>
+        </g>
       </g>
 
-      <!-- Passion 2: Entrepreneurship / Ryth -->
-      <g transform="translate(20, 126)">
-        <rect x="0" y="0" width="38" height="38" rx="8" fill="#072418" stroke="#00ff88" stroke-opacity="0.5" stroke-width="1"/>
-        <!-- Rocket / Venture Icon -->
-        <path d="M19 11C19 11 25 13 25 19L23 21L19 19L15 21L13 19C13 13 19 11 19 11Z" fill="none" stroke="#00ff88" stroke-width="1.6" stroke-linejoin="round"/>
-        <path d="M17 21L15 25M21 21L23 25" stroke="#00ff88" stroke-width="1.4" stroke-linecap="round"/>
-        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Entrepreneurship &amp; Building</text>
-        <text x="48" y="32" fill="#86efac" class="about-font" font-size="10.5">Founder of Ryth (200+ Users) · Growth &amp; Tech</text>
+      <!-- SLIDE 2: VENTURE / ENTREPRENEURSHIP -->
+      <g class="carousel-slide-2" transform="translate(20, 56)" style="opacity: 0;">
+        <!-- Badge & Progress Indicators -->
+        <rect x="0" y="0" width="102" height="20" rx="4" fill="#072418" stroke="#00ff88" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="8" y="14" fill="#00ff88" class="about-mono" font-size="9.5" font-weight="700" letter-spacing="1">02 / VENTURE</text>
+        
+        <rect x="226" y="7" width="36" height="4" rx="2" fill="#1e293b"/>
+        <rect x="268" y="7" width="36" height="4" rx="2" fill="#00ff88"/>
+        <rect x="310" y="7" width="36" height="4" rx="2" fill="#1e293b"/>
+
+        <!-- Title -->
+        <text x="0" y="48" fill="#ffffff" class="about-font" font-size="18" font-weight="800" letter-spacing="0.2">Entrepreneurship &amp; Building</text>
+
+        <!-- Description -->
+        <text x="0" y="74" fill="#94a3b8" class="about-font" font-size="12">Founder of Ryth (200+ users). Engineering growth platforms,</text>
+        <text x="0" y="94" fill="#94a3b8" class="about-font" font-size="12">product architecture, and high-velocity creator ecosystems.</text>
+
+        <!-- Ethos Box -->
+        <g transform="translate(0, 126)">
+          <rect x="0" y="0" width="346" height="42" rx="8" fill="#091d14" stroke="#00ff88" stroke-opacity="0.35" stroke-width="1"/>
+          <text x="14" y="26" fill="#00ff88" class="about-mono" font-size="11" font-weight="700" letter-spacing="0.6">ETHOS: Vision · Scale · Relentless Execution</text>
+        </g>
       </g>
 
-      <!-- Passion 3: Deep Tech Research -->
-      <g transform="translate(20, 196)">
-        <rect x="0" y="0" width="38" height="38" rx="8" fill="#0d2238" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="1"/>
-        <!-- Brain / Neural Research Icon -->
-        <circle cx="15" cy="19" r="3" fill="#38bdf8"/>
-        <circle cx="23" cy="15" r="2.5" fill="#38bdf8"/>
-        <circle cx="23" cy="23" r="2.5" fill="#38bdf8"/>
-        <line x1="15" y1="19" x2="23" y2="15" stroke="#38bdf8" stroke-width="1.4"/>
-        <line x1="15" y1="19" x2="23" y2="23" stroke="#38bdf8" stroke-width="1.4"/>
-        <text x="48" y="16" fill="#ffffff" class="about-font" font-size="13" font-weight="700">Deep Tech &amp; AI Research</text>
-        <text x="48" y="32" fill="#7dd3fc" class="about-font" font-size="10.5">Intelligent Agent Workflows &amp; Automation</text>
+      <!-- SLIDE 3: RESEARCH / DEEP TECH -->
+      <g class="carousel-slide-3" transform="translate(20, 56)" style="opacity: 0;">
+        <!-- Badge & Progress Indicators -->
+        <rect x="0" y="0" width="112" height="20" rx="4" fill="#0d2238" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="0.8"/>
+        <text x="8" y="14" fill="#38bdf8" class="about-mono" font-size="9.5" font-weight="700" letter-spacing="1">03 / RESEARCH</text>
+        
+        <rect x="226" y="7" width="36" height="4" rx="2" fill="#1e293b"/>
+        <rect x="268" y="7" width="36" height="4" rx="2" fill="#1e293b"/>
+        <rect x="310" y="7" width="36" height="4" rx="2" fill="#38bdf8"/>
+
+        <!-- Title -->
+        <text x="0" y="48" fill="#ffffff" class="about-font" font-size="18" font-weight="800" letter-spacing="0.2">Deep Tech &amp; AI Research</text>
+
+        <!-- Description -->
+        <text x="0" y="74" fill="#94a3b8" class="about-font" font-size="12">Exploring neural intelligence, autonomous agent workflows,</text>
+        <text x="0" y="94" fill="#94a3b8" class="about-font" font-size="12">and scalable distributed computation architectures.</text>
+
+        <!-- Ethos Box -->
+        <g transform="translate(0, 126)">
+          <rect x="0" y="0" width="346" height="42" rx="8" fill="#0a192c" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="1"/>
+          <text x="14" y="26" fill="#38bdf8" class="about-mono" font-size="11" font-weight="700" letter-spacing="0.6">ETHOS: Rigor · Curiosity · Neural Systems</text>
+        </g>
       </g>
     </g>
 
