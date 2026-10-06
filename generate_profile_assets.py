@@ -448,22 +448,216 @@ about_life_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 37
 </svg>'''
 
 # -------------------------------------------------------------
-# 3. STACK.SVG
+# 3. STACK.SVG - FUTURISTIC 3D ORBITAL & LASER ANIMATIONS
 # -------------------------------------------------------------
 stack_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1672 941" width="100%" height="auto" fill="none">
   <defs>
+    <style>
+      /* --- Central Core Breathing Glow --- */
+      @keyframes core-breathe {{
+        0%, 100% {{ transform: scale(1); opacity: 0.35; }}
+        50% {{ transform: scale(1.12); opacity: 0.75; }}
+      }}
+
+      /* --- Expanding Radar Pulse / Shockwave --- */
+      @keyframes radar-pulse {{
+        0% {{ r: 110px; opacity: 0.8; stroke-width: 3px; }}
+        70% {{ r: 240px; opacity: 0.15; stroke-width: 1px; }}
+        100% {{ r: 280px; opacity: 0; stroke-width: 0px; }}
+      }}
+
+      /* --- Planetary Beacon Pings --- */
+      @keyframes node-ping {{
+        0% {{ r: 52px; opacity: 0.85; stroke-width: 2.5px; }}
+        80% {{ r: 82px; opacity: 0; stroke-width: 0.5px; }}
+        100% {{ r: 82px; opacity: 0; stroke-width: 0px; }}
+      }}
+
+      /* --- Flowing Particle Orbital Streams --- */
+      @keyframes orbit-stream-cw {{
+        0% {{ stroke-dashoffset: 0; }}
+        100% {{ stroke-dashoffset: -360; }}
+      }}
+      @keyframes orbit-stream-ccw {{
+        0% {{ stroke-dashoffset: 0; }}
+        100% {{ stroke-dashoffset: 360; }}
+      }}
+
+      /* --- React Orbital Spin / Pulse --- */
+      @keyframes react-spin {{
+        0% {{ transform: rotate(0deg); opacity: 0.6; }}
+        50% {{ opacity: 0.9; }}
+        100% {{ transform: rotate(360deg); opacity: 0.6; }}
+      }}
+
+      /* --- Holographic Laser Sweep on Grid --- */
+      @keyframes laser-sweep {{
+        0% {{ transform: translateX(-120%) rotate(25deg); opacity: 0; }}
+        15% {{ opacity: 0.35; }}
+        40% {{ transform: translateX(280%) rotate(25deg); opacity: 0; }}
+        100% {{ transform: translateX(280%) rotate(25deg); opacity: 0; }}
+      }}
+
+      /* --- Lightning Beacon Flash --- */
+      @keyframes lightning-flash {{
+        0%, 100% {{ opacity: 0.3; transform: scale(1); }}
+        50% {{ opacity: 1; transform: scale(1.25); }}
+      }}
+
+      /* --- Frame Glow --- */
+      @keyframes frame-glow {{
+        0%, 100% {{ stroke-opacity: 0.55; }}
+        50% {{ stroke-opacity: 0.95; }}
+      }}
+
+      @media (prefers-reduced-motion: reduce) {{
+        * {{ animation: none !important; }}
+      }}
+    </style>
+
+    <!-- Linear Gradients for Borders & Laser -->
     <linearGradient id="stack-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#247bff" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#ff354f" stop-opacity="0.8"/>
+      <stop offset="0%" stop-color="#247bff" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#00d8ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ff354f" stop-opacity="0.9"/>
     </linearGradient>
+
+    <!-- Radial Gradients for Energy Auras -->
+    <radialGradient id="core-aura-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff2e93" stop-opacity="0.6"/>
+      <stop offset="45%" stop-color="#247bff" stop-opacity="0.35"/>
+      <stop offset="85%" stop-color="#00ffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#050813" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="cyan-node-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d8ff" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#0077ff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="orange-node-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff6b00" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#ff2a00" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="green-node-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff88" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#00aa55" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="yellow-node-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffbb00" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#ff7700" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Laser Foil Gradient -->
+    <linearGradient id="stack-laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#00d8ff" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#ff2e93" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clips -->
     <clipPath id="stack-rounded">
       <rect width="1672" height="941" rx="20" ry="20" />
     </clipPath>
+
+    <clipPath id="proficiencies-grid-clip">
+      <rect x="52" y="565" width="1568" height="310" rx="18" />
+    </clipPath>
   </defs>
+
   <g clip-path="url(#stack-rounded)">
+    <!-- 1. Base 3D Render Image (Retina 1672x941) -->
     <image href="{stack_b64}" width="1672" height="941" />
-    <rect x="1" y="1" width="1670" height="939" rx="19" fill="none" stroke="url(#stack-border-grad)" stroke-width="2" />
+
+    <!-- ==================== ANIMATED LAYER 1: ORBITAL PARTICLE ACCELERATOR BEAMS ==================== -->
+    <g style="mix-blend-mode: screen;">
+      <!-- Outer Main Orbit CW -->
+      <ellipse cx="918" cy="295" rx="490" ry="175" transform="rotate(-6 918 295)" fill="none" stroke="#00d8ff" stroke-width="2.5" stroke-opacity="0.75" stroke-dasharray="14 32" style="animation: orbit-stream-cw 6s linear infinite;" />
+      
+      <!-- Inner Secondary Orbit CCW -->
+      <ellipse cx="918" cy="295" rx="365" ry="135" transform="rotate(8 918 295)" fill="none" stroke="#ff2e93" stroke-width="2.2" stroke-opacity="0.7" stroke-dasharray="12 28" style="animation: orbit-stream-ccw 7s linear infinite;" />
+
+      <!-- Deep Equatorial Flow Orbit -->
+      <ellipse cx="918" cy="295" rx="260" ry="85" transform="rotate(-2 918 295)" fill="none" stroke="#00ff88" stroke-width="1.8" stroke-opacity="0.65" stroke-dasharray="8 20" style="animation: orbit-stream-cw 4.5s linear infinite;" />
+    </g>
+
+    <!-- ==================== ANIMATED LAYER 2: CENTRAL CORE ENERGY & RADAR ==================== -->
+    <g transform="translate(918, 295)">
+      <!-- Radiant Breathing Aura -->
+      <circle cx="0" cy="0" r="140" fill="url(#core-aura-grad)" style="mix-blend-mode: screen; animation: core-breathe 4s infinite ease-in-out; transform-origin: 0 0;" />
+      
+      <!-- Expanding Shockwave Ring 1 -->
+      <circle cx="0" cy="0" r="110" fill="none" stroke="#00ffff" style="animation: radar-pulse 3s infinite ease-out;" />
+      
+      <!-- Expanding Shockwave Ring 2 -->
+      <circle cx="0" cy="0" r="110" fill="none" stroke="#ff2e93" style="animation: radar-pulse 3s infinite ease-out 1.5s;" />
+    </g>
+
+    <!-- ==================== ANIMATED LAYER 3: PLANETARY NODES PULSING BEACONS ==================== -->
+    
+    <!-- 1. Python (Top-Left cx=604, cy=175) -->
+    <g transform="translate(604, 175)">
+      <circle cx="0" cy="0" r="70" fill="url(#cyan-node-glow)" style="mix-blend-mode: screen; animation: core-breathe 3.6s infinite ease-in-out;" />
+      <circle cx="0" cy="0" r="52" fill="none" stroke="#00d8ff" style="animation: node-ping 2.4s infinite ease-out;" />
+    </g>
+
+    <!-- 2. TensorFlow (Top-Right cx=1230, cy=175) -->
+    <g transform="translate(1230, 175)">
+      <circle cx="0" cy="0" r="70" fill="url(#orange-node-glow)" style="mix-blend-mode: screen; animation: core-breathe 3.2s infinite ease-in-out 0.6s;" />
+      <circle cx="0" cy="0" r="52" fill="none" stroke="#ff6b00" style="animation: node-ping 2.6s infinite ease-out 0.8s;" />
+    </g>
+
+    <!-- 3. C / C++ (Mid-Left cx=435, cy=330) -->
+    <g transform="translate(435, 330)">
+      <circle cx="0" cy="0" r="68" fill="url(#cyan-node-glow)" style="mix-blend-mode: screen; animation: core-breathe 4s infinite ease-in-out 1.2s;" />
+      <circle cx="0" cy="0" r="48" fill="none" stroke="#0088ff" style="animation: node-ping 3s infinite ease-out 1.4s;" />
+    </g>
+
+    <!-- 4. React (Mid-Right cx=1400, cy=330) - Spinning Atomic Halo Ring -->
+    <g transform="translate(1400, 330)">
+      <circle cx="0" cy="0" r="70" fill="url(#cyan-node-glow)" style="mix-blend-mode: screen; animation: core-breathe 3.4s infinite ease-in-out 1.8s;" />
+      <circle cx="0" cy="0" r="50" fill="none" stroke="#00ffff" style="animation: node-ping 2.5s infinite ease-out 0.5s;" />
+      <!-- Orbital Orbit Rings of React -->
+      <ellipse cx="0" cy="0" rx="46" ry="16" fill="none" stroke="#00ffff" stroke-width="1.6" stroke-dasharray="6 12" style="animation: react-spin 8s linear infinite; transform-origin: 0 0;" />
+      <ellipse cx="0" cy="0" rx="46" ry="16" transform="rotate(60)" fill="none" stroke="#00ffff" stroke-width="1.6" stroke-dasharray="6 12" style="animation: react-spin 8s linear infinite reverse; transform-origin: 0 0;" />
+      <ellipse cx="0" cy="0" rx="46" ry="16" transform="rotate(120)" fill="none" stroke="#00ffff" stroke-width="1.6" stroke-dasharray="6 12" style="animation: react-spin 8s linear infinite; transform-origin: 0 0;" />
+    </g>
+
+    <!-- 5. Scikit-Learn (Bottom-Left cx=745, cy=465) -->
+    <g transform="translate(745, 465)">
+      <circle cx="0" cy="0" r="68" fill="url(#yellow-node-glow)" style="mix-blend-mode: screen; animation: core-breathe 3.8s infinite ease-in-out 0.4s;" />
+      <circle cx="0" cy="0" r="48" fill="none" stroke="#ffbb00" style="animation: node-ping 2.8s infinite ease-out 1.1s;" />
+    </g>
+
+    <!-- 6. Node.js (Bottom-Right cx=1120, cy=465) -->
+    <g transform="translate(1120, 465)">
+      <circle cx="0" cy="0" r="72" fill="url(#green-node-glow)" style="mix-blend-mode: screen; animation: core-breathe 3.5s infinite ease-in-out 1s;" />
+      <circle cx="0" cy="0" r="52" fill="none" stroke="#00ff88" style="animation: node-ping 2.7s infinite ease-out 1.7s;" />
+    </g>
+
+    <!-- ==================== ANIMATED LAYER 4: BOTTOM PROFICIENCY CARDS LASER SWEEP ==================== -->
+    <g clip-path="url(#proficiencies-grid-clip)">
+      <rect x="-300" y="450" width="350" height="500" fill="url(#stack-laser-grad)" style="mix-blend-mode: screen; animation: laser-sweep 6s infinite cubic-bezier(0.4, 0, 0.2, 1);" />
+    </g>
+
+    <!-- ==================== ANIMATED LAYER 5: STATUS INDICATORS ==================== -->
+    <!-- Section 03 Top-Left Indicator Dot (cx=74, cy=58) -->
+    <circle cx="74" cy="58" r="4" fill="#00d8ff" style="animation: lightning-flash 2s infinite ease-in-out;" />
+    <circle cx="74" cy="58" r="4" fill="none" stroke="#00d8ff" style="animation: node-ping 2s infinite ease-out;" />
+
+    <!-- Lightning Bolt Flash in Lower Header (x=1092, y=608) -->
+    <circle cx="1092" cy="608" r="5" fill="#ffbb00" style="animation: lightning-flash 1.8s infinite ease-in-out;" />
+
+    <!-- ==================== OUTER FRAME STROKE ==================== -->
+    <rect x="1" y="1" width="1670" height="939" rx="19" fill="none" stroke="url(#stack-border-grad)" stroke-width="2" style="animation: frame-glow 4s infinite ease-in-out;" />
   </g>
 </svg>'''
 
