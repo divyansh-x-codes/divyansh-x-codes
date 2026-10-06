@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 410" width="850" height="410" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400" fill="none">
   <defs>
     <style>
       .stack-font {
-        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       }
       .stack-mono {
-        font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+        font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
       }
       @keyframes orbit-pulse {
         0%, 100% { opacity: 0.4; transform: scale(1); }
@@ -34,75 +34,75 @@
     </linearGradient>
 
     <clipPath id="stack-card-clip">
-      <rect x="0" y="0" width="850" height="410" rx="16"/>
+      <rect x="0" y="0" width="880" height="400" rx="16"/>
     </clipPath>
   </defs>
 
   <g clip-path="url(#stack-card-clip)">
     <!-- Background -->
-    <rect width="850" height="410" fill="url(#stack-bg-grad)"/>
+    <rect width="880" height="400" fill="url(#stack-bg-grad)"/>
 
     <!-- Header -->
-    <g transform="translate(36, 26)">
+    <g transform="translate(42, 26)">
       <rect x="0" y="0" width="170" height="24" rx="6" fill="#0d182b" stroke="#247bff" stroke-opacity="0.4" stroke-width="1"/>
       <text x="12" y="16" fill="#58a6ff" class="stack-mono" font-size="10.5" font-weight="700" letter-spacing="1">03 // TECH ARSENAL</text>
       <text x="190" y="17" fill="#8b949e" class="stack-font" font-size="13">Core languages, AI/ML frameworks, and platform tooling</text>
     </g>
 
     <!-- CENTER PLANETARY ORBIT SYSTEM -->
-    <g transform="translate(425, 145)">
+    <g transform="translate(440, 140)">
       <!-- Background Star Glow -->
       <circle cx="0" cy="0" r="110" fill="#247bff" fill-opacity="0.08"/>
 
       <!-- Orbit 1: Inner -->
-      <ellipse cx="0" cy="0" rx="130" ry="46" fill="none" stroke="#247bff" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="4 4" transform="rotate(-15)"/>
+      <ellipse cx="0" cy="0" rx="135" ry="46" fill="none" stroke="#247bff" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="4 4" transform="rotate(-15)"/>
 
       <!-- Orbit 2: Middle -->
-      <ellipse cx="0" cy="0" rx="220" ry="62" fill="none" stroke="#58a6ff" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="6 6" transform="rotate(8)"/>
+      <ellipse cx="0" cy="0" rx="230" ry="62" fill="none" stroke="#58a6ff" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="6 6" transform="rotate(8)"/>
 
       <!-- Orbit 3: Outer -->
-      <ellipse cx="0" cy="0" rx="310" ry="78" fill="none" stroke="#ff354f" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="8 6" transform="rotate(-6)"/>
+      <ellipse cx="0" cy="0" rx="320" ry="78" fill="none" stroke="#ff354f" stroke-opacity="0.25" stroke-width="1.2" stroke-dasharray="8 6" transform="rotate(-6)"/>
 
       <!-- Node: Python -->
-      <g transform="translate(-160, -42)">
+      <g transform="translate(-165, -42)">
         <circle cx="0" cy="0" r="18" fill="#0a162a" stroke="#247bff" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#58a6ff" class="stack-mono" font-size="11" font-weight="700">PY</text>
-        <text x="0" y="28" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Python</text>
+        <text x="0" y="4" text-anchor="middle" fill="#58a6ff" class="stack-mono" font-size="10.5" font-weight="700">PY</text>
+        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Python</text>
       </g>
 
       <!-- Node: TensorFlow -->
-      <g transform="translate(170, -35)">
+      <g transform="translate(175, -35)">
         <circle cx="0" cy="0" r="19" fill="#1f1414" stroke="#ff7b72" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" fill="#ff7b72" class="stack-mono" font-size="11" font-weight="700">TF</text>
-        <text x="0" y="28" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">TensorFlow</text>
+        <text x="0" y="4" text-anchor="middle" fill="#ff7b72" class="stack-mono" font-size="10.5" font-weight="700">TF</text>
+        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">TensorFlow</text>
       </g>
 
       <!-- Node: C++ -->
-      <g transform="translate(-270, 10)">
+      <g transform="translate(-280, 10)">
         <circle cx="0" cy="0" r="18" fill="#0c182b" stroke="#00d8ff" stroke-width="1.5"/>
         <text x="0" y="4" text-anchor="middle" fill="#00d8ff" class="stack-mono" font-size="10" font-weight="700">C++</text>
-        <text x="0" y="28" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">C / C++</text>
+        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">C / C++</text>
       </g>
 
       <!-- Node: React -->
-      <g transform="translate(280, 12)">
+      <g transform="translate(290, 12)">
         <circle cx="0" cy="0" r="18" fill="#091b2c" stroke="#61dafb" stroke-width="1.5"/>
         <text x="0" y="4" text-anchor="middle" fill="#61dafb" class="stack-mono" font-size="10" font-weight="700">RCT</text>
-        <text x="0" y="28" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">React</text>
+        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">React</text>
       </g>
 
       <!-- Node: Scikit-learn -->
-      <g transform="translate(-60, 48)">
+      <g transform="translate(-65, 48)">
         <circle cx="0" cy="0" r="17" fill="#1b1d12" stroke="#f59e0b" stroke-width="1.5"/>
         <text x="0" y="4" text-anchor="middle" fill="#f59e0b" class="stack-mono" font-size="10" font-weight="700">SKL</text>
-        <text x="0" y="28" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Scikit-Learn</text>
+        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Scikit-Learn</text>
       </g>
 
       <!-- Node: Node.js -->
-      <g transform="translate(85, 45)">
+      <g transform="translate(90, 45)">
         <circle cx="0" cy="0" r="17" fill="#0c1e14" stroke="#00ff88" stroke-width="1.5"/>
         <text x="0" y="4" text-anchor="middle" fill="#00ff88" class="stack-mono" font-size="10" font-weight="700">JS</text>
-        <text x="0" y="28" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Node / JS</text>
+        <text x="0" y="27" text-anchor="middle" fill="#c9d1d9" class="stack-font" font-size="10" font-weight="600">Node / JS</text>
       </g>
 
       <!-- Core Center Star -->
@@ -112,47 +112,46 @@
     </g>
 
     <!-- BOTTOM SECTION: GROUPED TECH CHIPS -->
-    <g transform="translate(36, 260)">
-      <rect width="778" height="120" rx="12" fill="#0b1322" stroke="#16233a" stroke-width="1"/>
+    <g transform="translate(42, 252)">
+      <rect width="796" height="120" rx="12" fill="#0b1322" stroke="#16233a" stroke-width="1"/>
       
-      <!-- Top Label for Chips -->
-      <text x="18" y="24" fill="#8b949e" class="stack-mono" font-size="11" font-weight="600" letter-spacing="0.5">PROVEN PROFICIENCIES // PRODUCTION &amp; RESEARCH</text>
+      <text x="18" y="24" fill="#8b949e" class="stack-mono" font-size="10.5" font-weight="600" letter-spacing="0.5">PROVEN PROFICIENCIES // PRODUCTION &amp; RESEARCH</text>
 
       <!-- Row 1: Languages & AI/ML -->
       <g transform="translate(18, 38)">
         <!-- Python -->
         <g transform="translate(0, 0)">
-          <rect width="138" height="30" rx="6" fill="#0f1b30" stroke="#247bff" stroke-opacity="0.6" stroke-width="1"/>
+          <rect width="144" height="30" rx="6" fill="#0f1b30" stroke="#247bff" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#388bfd"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">Python 3</text>
-          <text x="96" y="19" fill="#58a6ff" class="stack-mono" font-size="10">AI/Core</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">Python 3</text>
+          <text x="96" y="19" fill="#58a6ff" class="stack-mono" font-size="9.5">AI/Core</text>
         </g>
         <!-- C++ -->
-        <g transform="translate(148, 0)">
-          <rect width="138" height="30" rx="6" fill="#0f1b30" stroke="#00d8ff" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(154, 0)">
+          <rect width="144" height="30" rx="6" fill="#0f1b30" stroke="#00d8ff" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#00d8ff"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">C / C++</text>
-          <text x="92" y="19" fill="#00d8ff" class="stack-mono" font-size="10">Perf</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">C / C++</text>
+          <text x="96" y="19" fill="#00d8ff" class="stack-mono" font-size="9.5">Perf</text>
         </g>
         <!-- TensorFlow -->
-        <g transform="translate(296, 0)">
-          <rect width="150" height="30" rx="6" fill="#1e1416" stroke="#ff354f" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(308, 0)">
+          <rect width="154" height="30" rx="6" fill="#1e1416" stroke="#ff354f" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#ff354f"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">TensorFlow</text>
-          <text x="108" y="19" fill="#ff7b72" class="stack-mono" font-size="10">Neural</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">TensorFlow</text>
+          <text x="108" y="19" fill="#ff7b72" class="stack-mono" font-size="9.5">Neural</text>
         </g>
         <!-- Scikit-learn -->
-        <g transform="translate(456, 0)">
-          <rect width="144" height="30" rx="6" fill="#1f1a10" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(472, 0)">
+          <rect width="148" height="30" rx="6" fill="#1f1a10" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#f59e0b"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">scikit-learn</text>
-          <text x="110" y="19" fill="#f59e0b" class="stack-mono" font-size="10">ML</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">scikit-learn</text>
+          <text x="110" y="19" fill="#f59e0b" class="stack-mono" font-size="9.5">ML</text>
         </g>
         <!-- SQL -->
-        <g transform="translate(610, 0)">
-          <rect width="132" height="30" rx="6" fill="#0f1b30" stroke="#247bff" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(630, 0)">
+          <rect width="130" height="30" rx="6" fill="#0f1b30" stroke="#247bff" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#58a6ff"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">SQL / Relational</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">SQL / DB</text>
         </g>
       </g>
 
@@ -160,40 +159,40 @@
       <g transform="translate(18, 76)">
         <!-- React -->
         <g transform="translate(0, 0)">
-          <rect width="138" height="30" rx="6" fill="#0a1a2b" stroke="#61dafb" stroke-opacity="0.6" stroke-width="1"/>
+          <rect width="144" height="30" rx="6" fill="#0a1a2b" stroke="#61dafb" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#61dafb"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">React.js</text>
-          <text x="92" y="19" fill="#61dafb" class="stack-mono" font-size="10">UI/UX</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">React.js</text>
+          <text x="96" y="19" fill="#61dafb" class="stack-mono" font-size="9.5">UI/UX</text>
         </g>
         <!-- Node.js -->
-        <g transform="translate(148, 0)">
-          <rect width="138" height="30" rx="6" fill="#0c1e14" stroke="#00ff88" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(154, 0)">
+          <rect width="144" height="30" rx="6" fill="#0c1e14" stroke="#00ff88" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#00ff88"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">Node.js</text>
-          <text x="90" y="19" fill="#00ff88" class="stack-mono" font-size="10">Backend</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">Node.js</text>
+          <text x="94" y="19" fill="#00ff88" class="stack-mono" font-size="9.5">Backend</text>
         </g>
         <!-- JavaScript -->
-        <g transform="translate(296, 0)">
-          <rect width="150" height="30" rx="6" fill="#1e1e0f" stroke="#eab308" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(308, 0)">
+          <rect width="154" height="30" rx="6" fill="#1e1e0f" stroke="#eab308" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#eab308"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">JavaScript (ES6+)</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">JavaScript ES6+</text>
         </g>
         <!-- Git -->
-        <g transform="translate(456, 0)">
-          <rect width="144" height="30" rx="6" fill="#1e1414" stroke="#f05032" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(472, 0)">
+          <rect width="148" height="30" rx="6" fill="#1e1414" stroke="#f05032" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#f05032"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">Git / VCS</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">Git / VCS</text>
         </g>
         <!-- GitHub -->
-        <g transform="translate(610, 0)">
-          <rect width="132" height="30" rx="6" fill="#161b22" stroke="#8b949e" stroke-opacity="0.6" stroke-width="1"/>
+        <g transform="translate(630, 0)">
+          <rect width="130" height="30" rx="6" fill="#161b22" stroke="#8b949e" stroke-opacity="0.6" stroke-width="1"/>
           <circle cx="15" cy="15" r="4" fill="#c9d1d9"/>
-          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="12" font-weight="600">GitHub CI/CD</text>
+          <text x="28" y="19" fill="#f0f6fc" class="stack-font" font-size="11.5" font-weight="600">GitHub CI/CD</text>
         </g>
       </g>
     </g>
 
     <!-- Outer Frame Stroke -->
-    <rect x="1" y="1" width="848" height="408" rx="15" fill="none" stroke="url(#stack-border-grad)" stroke-width="1.5"/>
+    <rect x="1" y="1" width="878" height="398" rx="15" fill="none" stroke="url(#stack-border-grad)" stroke-width="1.5"/>
   </g>
 </svg>
